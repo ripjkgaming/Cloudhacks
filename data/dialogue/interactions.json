@@ -1,0 +1,337 @@
+{
+ "pools": {
+  "bed": [
+   {
+    "text": "Sleep.",
+    "priority": 1
+   }
+  ],
+  "bed_early": [
+   {
+    "text": "It's barely the afternoon. But sleeping would make the problem pause...",
+    "priority": 3
+   }
+  ],
+  "fridge": [
+   {
+    "text": "There's nothing good here.",
+    "priority": 1
+   },
+   {
+    "text": "Half a lemon. A single yogurt. You look at it. It looks at you.",
+    "priority": 2,
+    "conditions": [
+     "day>=2"
+    ]
+   },
+   {
+    "text": "The fridge hums. Nothing in it can help you.",
+    "priority": 3,
+    "conditions": [
+     "day>=3"
+    ]
+   }
+  ],
+  "mirror": [
+   {
+    "text": "You look tired.",
+    "priority": 1
+   },
+   {
+    "text": "You look... like someone who has a thing to do.",
+    "priority": 4,
+    "conditions": [
+     "day>=2",
+     "avoidance>=20"
+    ]
+   },
+   {
+    "text": "The mirror is slow to catch up. Probably just the light.",
+    "priority": 8,
+    "conditions": [
+     "stats.mirror_count>=3",
+     "day>=3"
+    ]
+   },
+   {
+    "text": "Your reflection looks like you. That's about all you can say.",
+    "priority": 9,
+    "conditions": [
+     "day>=4"
+    ]
+   },
+   {
+    "text": "You look like you're finally awake.",
+    "priority": 12,
+    "conditions": [
+     "cycle_broken>=1"
+    ]
+   }
+  ],
+  "pc": [
+   {
+    "text": "The problem remains.",
+    "priority": 1
+   },
+   {
+    "text": "It's right there. Waiting.",
+    "priority": 2,
+    "conditions": [
+     "day>=2"
+    ]
+   },
+   {
+    "text": "You can feel the monitor looking at you.",
+    "priority": 4,
+    "conditions": [
+     "day>=3"
+    ]
+   }
+  ],
+  "trash": [
+   {
+    "text": "You should probably clean this.",
+    "priority": 1
+   },
+   {
+    "text": "Wrappers, cups, a sock. Evidence of avoidance.",
+    "priority": 4,
+    "conditions": [
+     "stats.clutter>=4"
+    ]
+   }
+  ],
+  "poster": [
+   {
+    "text": "You don't remember putting this up.",
+    "priority": 1
+   },
+   {
+    "text": "The poster looks different. Same poster. Different mood.",
+    "priority": 3,
+    "conditions": [
+     "day>=3"
+    ]
+   },
+   {
+    "text": "It says: BEGIN. You're sure it didn't earlier.",
+    "priority": 6,
+    "conditions": [
+     "day>=4"
+    ]
+   }
+  ],
+  "closet": [
+   {
+    "text": "Same five hoodies. Nothing to wear. Everything to wear.",
+    "priority": 1
+   },
+   {
+    "text": "You know exactly what's in there. You're just stalling.",
+    "priority": 4,
+    "conditions": [
+     "avoidance>=30"
+    ]
+   }
+  ],
+  "books": [
+   {
+    "text": "Textbooks. Mostly unopened. Mostly dusty.",
+    "priority": 1
+   },
+   {
+    "text": "The bookmark hasn't moved since week two.",
+    "priority": 4,
+    "conditions": [
+     "day>=2"
+    ]
+   }
+  ],
+  "backpack": [
+   {
+    "text": "Your backpack. There's a crumpled printout of the assignment inside.",
+    "priority": 1
+   },
+   {
+    "text": "Still zipped. Still heavy.",
+    "priority": 3,
+    "conditions": [
+     "day>=2"
+    ]
+   }
+  ],
+  "water": [
+   {
+    "text": "Water. Responsible. Nice.",
+    "priority": 1
+   },
+   {
+    "text": "You drink water. Your body thanks you.",
+    "priority": 2
+   }
+  ],
+  "window": [
+   {
+    "text": "A normal street. Normal clouds. A normal afternoon.",
+    "priority": 1
+   },
+   {
+    "text": "Everybody out there looks like they're doing something.",
+    "priority": 4,
+    "conditions": [
+     "day>=2"
+    ]
+   },
+   {
+    "text": "You could stare out here all day. You have.",
+    "priority": 6,
+    "conditions": [
+     "day>=3"
+    ]
+   }
+  ],
+  "clock": [
+   {
+    "text": "The clock ticks.",
+    "priority": 1
+   },
+   {
+    "text": "Tick. Tick. Tick.",
+    "priority": 4,
+    "conditions": [
+     "day>=2"
+    ]
+   },
+   {
+    "text": "11:47. It says 11:47. It said 11:47 earlier too.",
+    "priority": 9,
+    "conditions": [
+     "day>=3"
+    ]
+   }
+  ],
+  "phone": [
+   {
+    "text": "Notifications. None of them important.",
+    "priority": 1
+   }
+  ],
+  "console": [
+   {
+    "text": "Your trusty console. Dust-free. Suspicious.",
+    "priority": 1
+   }
+  ],
+  "sticky": [
+   {
+    "text": "START.",
+    "priority": 1
+   }
+  ],
+  "door_night": [
+   {
+    "text": "It's too late to go out now.",
+    "priority": 1
+   }
+  ],
+  "door_cycle": [
+   {
+    "text": "Not yet.",
+    "priority": 1
+   }
+  ],
+  "lamp": [
+   {
+    "text": "A warm little lamp. Cozy.",
+    "priority": 1
+   },
+   {
+    "text": "It flickers. Just the power.",
+    "priority": 5,
+    "conditions": [
+     "pressure>=60"
+    ]
+   }
+  ],
+  "plant": [
+   {
+    "text": "Your plant. It's doing better than you.",
+    "priority": 1
+   },
+   {
+    "text": "You forgot to water it. Again.",
+    "priority": 3,
+    "conditions": [
+     "day>=3"
+    ]
+   }
+  ],
+  "rug": [
+   {
+    "text": "A soft rug.",
+    "priority": 1
+   }
+  ],
+  "laundry": [
+   {
+    "text": "Laundry. Clean? Dirty? Who knows.",
+    "priority": 1
+   }
+  ],
+  "desk": [
+   {
+    "text": "A desk. Where work is supposed to happen.",
+    "priority": 1
+   },
+   {
+    "text": "There's a ring on the desk from a mug you don't remember using.",
+    "priority": 3,
+    "conditions": [
+     "day>=3"
+    ]
+   }
+  ],
+  "chair": [
+   {
+    "text": "The chair creaks. It sounds judgmental.",
+    "priority": 1
+   }
+  ],
+  "keyboard": [
+   {
+    "text": "The keys are slightly sticky. Like the day.",
+    "priority": 1
+   }
+  ],
+  "monitor": [
+   {
+    "text": "The screen glows patiently.",
+    "priority": 1
+   }
+  ],
+  "ac": [
+   {
+    "text": "The air conditioner hums.",
+    "priority": 1
+   }
+  ],
+  "dumbbell": [
+   {
+    "text": "A single dumbbell in the corner. A promise to yourself.",
+    "priority": 1
+   }
+  ],
+  "outdoor_bench": [
+   {
+    "text": "A bench. The sun is nice.",
+    "priority": 1
+   }
+  ],
+  "outdoor_apartment": [
+   {
+    "text": "Home. For better or worse.",
+    "priority": 1
+   }
+  ]
+ }
+}

@@ -1,0 +1,204 @@
+{
+ "pools": {
+  "anxiety_sub": [
+   {
+    "text": "A situation triggers an anxious response that includes thoughts, physical symptoms, and feelings.",
+    "priority": 10,
+    "conditions": [
+     "stats.assignment_views<=1"
+    ]
+   },
+   {
+    "text": "Thoughts racing. Tight chest. The urge to be anywhere else.",
+    "priority": 5,
+    "conditions": [
+     "stats.assignment_views>=2"
+    ]
+   },
+   {
+    "text": "Same feeling as yesterday. A little bigger.",
+    "priority": 8,
+    "conditions": [
+     "day>=2",
+     "avoidance>=15"
+    ]
+   },
+   {
+    "text": "You know how this goes.",
+    "priority": 9,
+    "conditions": [
+     "day>=3"
+    ]
+   },
+   {
+    "text": "You've opened this {stats.assignment_views} times.",
+    "priority": 12,
+    "conditions": [
+     "stats.assignment_views>=8"
+    ]
+   },
+   {
+    "text": "Notice it. You don't have to obey it.",
+    "priority": 14,
+    "conditions": [
+     "self_awareness>=30"
+    ]
+   },
+   {
+    "text": "It's just a document. It feels like a verdict.",
+    "priority": 13,
+    "conditions": [
+     "flag.awareness_unlocked",
+     "day>=4"
+    ]
+   }
+  ],
+  "relief_sub": [
+   {
+    "text": "It worked.",
+    "priority": 1
+   },
+   {
+    "text": "Better. For now.",
+    "priority": 1
+   },
+   {
+    "text": "Ahh.",
+    "priority": 1
+   },
+   {
+    "text": "It always works. That's the problem.",
+    "priority": 5,
+    "conditions": [
+     "stats.avoidance_count>=8"
+    ]
+   },
+   {
+    "text": "Ahh. ...and now it's heavier.",
+    "priority": 6,
+    "conditions": [
+     "stats.avoidance_count>=12"
+    ]
+   }
+  ],
+  "sleep_line": [
+   {
+    "text": "The day ends. The assignment doesn't.",
+    "priority": 1
+   },
+   {
+    "text": "Tomorrow, then.",
+    "priority": 1,
+    "conditions": [
+     "day==1"
+    ]
+   },
+   {
+    "text": "Tomorrow.",
+    "priority": 2,
+    "conditions": [
+     "day>=2"
+    ]
+   },
+   {
+    "text": "You'll start tomorrow. Probably.",
+    "priority": 4,
+    "conditions": [
+     "stats.avoidance_count>=6"
+    ]
+   }
+  ],
+  "wake_up": [
+   {
+    "text": "Another day. A nice, calm, nothing-day.",
+    "priority": 5,
+    "conditions": [
+     "day==1",
+     "loops==0"
+    ]
+   },
+   {
+    "text": "Morning. Plenty of time.",
+    "priority": 4,
+    "conditions": [
+     "day==1",
+     "loops==0"
+    ]
+   },
+   {
+    "text": "Day 1. Again. Somehow it feels like you remember all of it.",
+    "priority": 9,
+    "conditions": [
+     "day==1",
+     "loops>=1"
+    ]
+   },
+   {
+    "text": "Okay. Deep breath. It's due tomorrow. Plenty of time...",
+    "priority": 6,
+    "conditions": [
+     "day==2"
+    ]
+   },
+   {
+    "text": "It's due tonight. Great. Great great great.",
+    "priority": 8,
+    "conditions": [
+     "day==3"
+    ]
+   },
+   {
+    "text": "Nobody's emailed yet. That's something, right?",
+    "priority": 8,
+    "conditions": [
+     "day==4"
+    ]
+   },
+   {
+    "text": "You wake up. The room is exactly the same.",
+    "priority": 8,
+    "conditions": [
+     "day>=5",
+     "!flag.cycle_broken"
+    ]
+   },
+   {
+    "text": "Morning light. The room feels... lighter.",
+    "priority": 12,
+    "conditions": [
+     "cycle_broken>=1"
+    ]
+   }
+  ],
+  "return_home": [
+   {
+    "text": "Home. That was nice. Really nice.",
+    "priority": 3,
+    "conditions": [
+     "day==1"
+    ]
+   },
+   {
+    "text": "Home again. The room feels a little smaller than before.",
+    "priority": 5,
+    "conditions": [
+     "day>=3"
+    ]
+   },
+   {
+    "text": "Back in your room. The monitor glows from the corner.",
+    "priority": 4
+   }
+  ],
+  "late_night": [
+   {
+    "text": "It's late. Maybe you should sleep.",
+    "priority": 1
+   },
+   {
+    "text": "It's getting dark. Time to wind down.",
+    "priority": 1
+   }
+  ]
+ }
+}

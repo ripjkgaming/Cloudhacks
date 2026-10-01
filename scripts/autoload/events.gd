@@ -1,0 +1,22 @@
+extends Node
+## Global signal bus. Systems talk through these instead of holding references.
+
+signal psy_changed(var_name: String, old_value: float, new_value: float)
+signal narrative_state_changed(state: String)
+signal day_started(day: int)
+signal day_ended(day: int)
+signal block_changed(block: int)
+signal choice_made(id: String, category: String)
+signal assignment_viewed()
+signal anxiety_triggered(intensity: float)
+signal relief_triggered()
+signal intensification_triggered(level: int)
+signal pressure_threshold(level: int)
+signal fourth_wall(id: String)
+signal ending_reached(id: String)
+signal interacted(id: String)
+signal minigame_finished(id: String, result: Dictionary)
+signal room_state_changed()
+signal notification(text: String)
+signal subtitle(text: String, speaker: String, duration: float)
+signal essay_progress(sections_done: int)

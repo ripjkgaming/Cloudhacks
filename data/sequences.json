@@ -1,0 +1,1172 @@
+{
+ "opening": {
+  "bg": "black",
+  "keep_bg": true,
+  "steps": [
+   {
+    "t": "music",
+    "kind": "lofi1",
+    "fade": 3.0
+   },
+   {
+    "t": "pause",
+    "s": 2.0
+   },
+   {
+    "t": "text",
+    "text": "A choice-driven experience.",
+    "hold": 2.2
+   },
+   {
+    "t": "pause",
+    "s": 1.0
+   },
+   {
+    "t": "text",
+    "text": "Your choices may lead you forward...",
+    "hold": 2.4
+   },
+   {
+    "t": "pause",
+    "s": 1.0
+   },
+   {
+    "t": "text",
+    "text": "...or back to where you started.",
+    "hold": 2.8
+   },
+   {
+    "t": "pause",
+    "s": 1.2
+   }
+  ]
+ },
+ "opening_loop": {
+  "bg": "black",
+  "keep_bg": true,
+  "steps": [
+   {
+    "t": "music",
+    "kind": "none"
+   },
+   {
+    "t": "pause",
+    "s": 2.5
+   },
+   {
+    "t": "text",
+    "text": "ANXIETY TRAP",
+    "hold": 3.5,
+    "size": 64,
+    "color": "warn"
+   },
+   {
+    "t": "pause",
+    "s": 1.5
+   },
+   {
+    "t": "text",
+    "text": "You've been here before.",
+    "hold": 2.2
+   },
+   {
+    "t": "pause",
+    "s": 1.0
+   }
+  ]
+ },
+ "anxiety_full": {
+  "steps": [
+   {
+    "t": "state",
+    "state": "ANXIETY",
+    "blend": 3.0
+   },
+   {
+    "t": "sfx",
+    "name": "heart",
+    "db": -6
+   },
+   {
+    "t": "text",
+    "text": "ANXIETY",
+    "hold": 1.2,
+    "size": 46,
+    "color": "warn"
+   },
+   {
+    "t": "pool",
+    "file": "narration",
+    "pool": "anxiety_sub",
+    "hold": 2.4,
+    "size": 24
+   }
+  ]
+ },
+ "anxiety_short": {
+  "steps": [
+   {
+    "t": "state",
+    "state": "ANXIETY",
+    "blend": 3.0
+   },
+   {
+    "t": "sfx",
+    "name": "heart",
+    "db": -8
+   },
+   {
+    "t": "text",
+    "text": "ANXIETY",
+    "hold": 0.7,
+    "size": 40,
+    "color": "warn"
+   }
+  ]
+ },
+ "relief_full": {
+  "steps": [
+   {
+    "t": "state",
+    "state": "RELIEF",
+    "blend": 2.0
+   },
+   {
+    "t": "text",
+    "text": "RELIEF",
+    "hold": 1.2,
+    "size": 44,
+    "color": "accent"
+   },
+   {
+    "t": "text",
+    "text": "Avoiding the anxiety trigger lessens the discomfort.",
+    "hold": 1.6,
+    "size": 26
+   },
+   {
+    "t": "pause",
+    "s": 0.8
+   },
+   {
+    "t": "text",
+    "text": "But the relief is temporary.",
+    "hold": 1.6,
+    "size": 26
+   },
+   {
+    "t": "pause",
+    "s": 0.8
+   },
+   {
+    "t": "text",
+    "text": "And it comes at a cost.",
+    "hold": 2.0,
+    "size": 26
+   },
+   {
+    "t": "pause",
+    "s": 0.4
+   },
+   {
+    "t": "settle"
+   }
+  ]
+ },
+ "relief_mid": {
+  "steps": [
+   {
+    "t": "state",
+    "state": "RELIEF",
+    "blend": 2.0
+   },
+   {
+    "t": "text",
+    "text": "RELIEF",
+    "hold": 1.0,
+    "size": 40,
+    "color": "accent"
+   },
+   {
+    "t": "text",
+    "text": "It worked. It always works. For a while.",
+    "hold": 2.0,
+    "size": 24
+   },
+   {
+    "t": "settle"
+   }
+  ]
+ },
+ "relief_short": {
+  "steps": [
+   {
+    "t": "state",
+    "state": "RELIEF",
+    "blend": 2.0
+   },
+   {
+    "t": "text",
+    "text": "Relief.",
+    "hold": 1.2,
+    "size": 32,
+    "color": "accent"
+   },
+   {
+    "t": "pool",
+    "file": "narration",
+    "pool": "relief_sub",
+    "hold": 1.8,
+    "size": 22
+   },
+   {
+    "t": "settle"
+   }
+  ]
+ },
+ "intensification_1": {
+  "steps": [
+   {
+    "t": "state",
+    "state": "INTENSIFICATION",
+    "blend": 2.5
+   },
+   {
+    "t": "text",
+    "text": "INTENSIFICATION",
+    "hold": 1.4,
+    "size": 44,
+    "color": "warn"
+   },
+   {
+    "t": "text",
+    "text": "You begin to associate avoidance with feeling better.",
+    "hold": 2.0,
+    "size": 26
+   },
+   {
+    "t": "pause",
+    "s": 0.6
+   },
+   {
+    "t": "text",
+    "text": "As a result, the next time you face a similar situation...",
+    "hold": 2.2,
+    "size": 26
+   },
+   {
+    "t": "pause",
+    "s": 1.0
+   },
+   {
+    "t": "text",
+    "text": "...the anxiety becomes stronger.",
+    "hold": 2.0,
+    "size": 26
+   },
+   {
+    "t": "pause",
+    "s": 0.6
+   },
+   {
+    "t": "text",
+    "text": "And avoiding it becomes even more tempting.",
+    "hold": 2.6,
+    "size": 26
+   },
+   {
+    "t": "pause",
+    "s": 0.4
+   },
+   {
+    "t": "settle",
+    "blend": 1.0
+   }
+  ]
+ },
+ "intensification_2": {
+  "steps": [
+   {
+    "t": "state",
+    "state": "INTENSIFICATION",
+    "blend": 2.5
+   },
+   {
+    "t": "text",
+    "text": "INTENSIFICATION",
+    "hold": 1.2,
+    "size": 40,
+    "color": "warn"
+   },
+   {
+    "t": "text",
+    "text": "The room feels smaller each time.",
+    "hold": 2.0,
+    "size": 24
+   },
+   {
+    "t": "text",
+    "text": "The thing you're avoiding doesn't shrink. You do.",
+    "hold": 2.4,
+    "size": 24
+   },
+   {
+    "t": "settle"
+   }
+  ]
+ },
+ "intensification_3": {
+  "steps": [
+   {
+    "t": "state",
+    "state": "INTENSIFICATION",
+    "blend": 2.5
+   },
+   {
+    "t": "text",
+    "text": "INTENSIFICATION",
+    "hold": 1.0,
+    "size": 40,
+    "color": "warn"
+   },
+   {
+    "t": "text",
+    "text": "Avoiding is easy now. Starting is the hard part.",
+    "hold": 2.4,
+    "size": 24
+   },
+   {
+    "t": "settle"
+   }
+  ]
+ },
+ "fourth_wall_1": {
+  "bg": "none",
+  "steps": [
+   {
+    "t": "fourth_wall",
+    "id": "fw1"
+   },
+   {
+    "t": "state",
+    "state": "FOURTH_WALL",
+    "blend": 4.0
+   },
+   {
+    "t": "silence",
+    "fade": 0.3
+   },
+   {
+    "t": "pause",
+    "s": 2.5
+   },
+   {
+    "t": "call",
+    "name": "turn_to_viewer"
+   },
+   {
+    "t": "text",
+    "text": "How many times will you repeat this cycle?",
+    "hold": 2.8
+   },
+   {
+    "t": "pause",
+    "s": 1.2
+   },
+   {
+    "t": "text",
+    "text": "You choose to avoid your responsibilities each time...",
+    "hold": 2.8
+   },
+   {
+    "t": "pause",
+    "s": 0.8
+   },
+   {
+    "t": "text",
+    "text": "...knowing that it will put you under more pressure later.",
+    "hold": 3.0
+   },
+   {
+    "t": "pause",
+    "s": 1.2
+   },
+   {
+    "t": "text",
+    "text": "And yet you keep choosing it.",
+    "hold": 3.0
+   },
+   {
+    "t": "pause",
+    "s": 1.5
+   },
+   {
+    "t": "call",
+    "name": "turn_back"
+   },
+   {
+    "t": "restore"
+   },
+   {
+    "t": "settle",
+    "blend": 1.5
+   }
+  ]
+ },
+ "you_back": {
+  "steps": [
+   {
+    "t": "fourth_wall",
+    "id": "fw2"
+   },
+   {
+    "t": "state",
+    "state": "RECOGNITION",
+    "blend": 3.0
+   },
+   {
+    "t": "silence",
+    "fade": 0.5
+   },
+   {
+    "t": "pause",
+    "s": 1.5
+   },
+   {
+    "t": "text",
+    "text": "You're back here again.",
+    "hold": 2.4
+   },
+   {
+    "t": "pause",
+    "s": 0.8
+   },
+   {
+    "t": "text",
+    "text": "Not the character.",
+    "hold": 2.2
+   },
+   {
+    "t": "pause",
+    "s": 1.0
+   },
+   {
+    "t": "text",
+    "text": "You.",
+    "hold": 2.6
+   },
+   {
+    "t": "pause",
+    "s": 0.8
+   },
+   {
+    "t": "call",
+    "name": "look_at_monitor"
+   },
+   {
+    "t": "call",
+    "name": "monitor_text",
+    "args": {
+     "text": "USER DETECTED."
+    }
+   },
+   {
+    "t": "pause",
+    "s": 1.8
+   },
+   {
+    "t": "call",
+    "name": "look_back_up"
+   },
+   {
+    "t": "restore"
+   },
+   {
+    "t": "settle",
+    "blend": 1.5
+   }
+  ]
+ },
+ "final_gate": {
+  "bg": "black",
+  "steps": [
+   {
+    "t": "fourth_wall",
+    "id": "gate"
+   },
+   {
+    "t": "silence",
+    "fade": 0.5
+   },
+   {
+    "t": "state",
+    "state": "FOURTH_WALL",
+    "blend": 1.0
+   },
+   {
+    "t": "pause",
+    "s": 1.2
+   },
+   {
+    "t": "text",
+    "text": "How many times will you repeat this cycle?",
+    "hold": 2.8
+   },
+   {
+    "t": "pause",
+    "s": 1.0
+   },
+   {
+    "t": "text",
+    "text": "You could keep playing forever.",
+    "hold": 3.0
+   },
+   {
+    "t": "pause",
+    "s": 1.2
+   }
+  ],
+  "keep_bg": true
+ },
+ "final_gate_2": {
+  "bg": "black",
+  "steps": [
+   {
+    "t": "fourth_wall",
+    "id": "gate2"
+   },
+   {
+    "t": "silence",
+    "fade": 0.5
+   },
+   {
+    "t": "state",
+    "state": "FOURTH_WALL",
+    "blend": 1.0
+   },
+   {
+    "t": "pause",
+    "s": 1.2
+   },
+   {
+    "t": "text",
+    "text": "Day {day}. Same room. Same assignment.",
+    "hold": 2.6
+   },
+   {
+    "t": "pause",
+    "s": 0.8
+   },
+   {
+    "t": "text",
+    "text": "You could keep playing forever.",
+    "hold": 3.0
+   },
+   {
+    "t": "pause",
+    "s": 1.2
+   }
+  ],
+  "keep_bg": true
+ },
+ "break_cycle": {
+  "steps": [
+   {
+    "t": "restore"
+   },
+   {
+    "t": "state",
+    "state": "CONFRONTATION",
+    "blend": 2.0
+   },
+   {
+    "t": "text",
+    "text": "Okay.",
+    "hold": 1.8
+   },
+   {
+    "t": "pause",
+    "s": 0.6
+   },
+   {
+    "t": "fade",
+    "to": "black",
+    "time": 1.0
+   },
+   {
+    "t": "text",
+    "text": "Let's start.",
+    "hold": 2.0
+   },
+   {
+    "t": "settle",
+    "blend": 1.0
+   }
+  ]
+ },
+ "sleep": {
+  "steps": [
+   {
+    "t": "pool",
+    "file": "narration",
+    "pool": "sleep_line",
+    "hold": 1.6,
+    "size": 24
+   }
+  ]
+ },
+ "end_escape_intro": {
+  "bg": "black",
+  "steps": [
+   {
+    "t": "silence",
+    "fade": 0.4
+   },
+   {
+    "t": "pause",
+    "s": 1.0
+   },
+   {
+    "t": "text",
+    "text": "You started.",
+    "hold": 2.6
+   },
+   {
+    "t": "pause",
+    "s": 1.0
+   },
+   {
+    "t": "text",
+    "text": "It wasn't as impossible as it felt.",
+    "hold": 3.2
+   },
+   {
+    "t": "pause",
+    "s": 1.5
+   },
+   {
+    "t": "music",
+    "kind": "ending",
+    "fade": 3.0
+   },
+   {
+    "t": "text",
+    "text": "Sometimes the hardest part is beginning.",
+    "hold": 3.6
+   },
+   {
+    "t": "pause",
+    "s": 2.0
+   }
+  ]
+ },
+ "end_true": {
+  "bg": "black",
+  "steps": [
+   {
+    "t": "silence",
+    "fade": 0.3
+   },
+   {
+    "t": "state",
+    "state": "ENDING",
+    "blend": 0.5
+   },
+   {
+    "t": "pause",
+    "s": 2.5
+   },
+   {
+    "t": "text",
+    "text": "This game was never really about an essay.",
+    "hold": 3.2
+   },
+   {
+    "t": "pause",
+    "s": 1.4
+   },
+   {
+    "t": "text",
+    "text": "It was about avoidance.",
+    "hold": 3.0
+   },
+   {
+    "t": "pause",
+    "s": 1.4
+   },
+   {
+    "t": "text",
+    "text": "Avoidance feels good because it removes discomfort now.",
+    "hold": 3.6
+   },
+   {
+    "t": "pause",
+    "s": 1.4
+   },
+   {
+    "t": "text",
+    "text": "But the problem doesn't disappear.",
+    "hold": 3.2
+   },
+   {
+    "t": "pause",
+    "s": 1.8
+   },
+   {
+    "t": "text",
+    "text": "It waits.",
+    "hold": 3.4
+   },
+   {
+    "t": "pause",
+    "s": 2.0
+   }
+  ]
+ },
+ "end_true_outro": {
+  "steps": [
+   {
+    "t": "fade",
+    "to": "white",
+    "time": 3.0
+   },
+   {
+    "t": "pause",
+    "s": 1.0
+   },
+   {
+    "t": "text",
+    "text": "YOU BROKE THE CYCLE.",
+    "hold": 4.0,
+    "size": 54,
+    "color": "accent"
+   },
+   {
+    "t": "pause",
+    "s": 1.5
+   }
+  ]
+ },
+ "end_awareness": {
+  "bg": "black",
+  "steps": [
+   {
+    "t": "silence",
+    "fade": 0.5
+   },
+   {
+    "t": "state",
+    "state": "ENDING",
+    "blend": 0.5
+   },
+   {
+    "t": "pause",
+    "s": 2.5
+   },
+   {
+    "t": "text",
+    "text": "You can see the pattern now.",
+    "hold": 3.0
+   },
+   {
+    "t": "pause",
+    "s": 1.4
+   },
+   {
+    "t": "text",
+    "text": "Recognizing the cycle is not the same as breaking it.",
+    "hold": 3.8
+   },
+   {
+    "t": "pause",
+    "s": 1.6
+   },
+   {
+    "t": "text",
+    "text": "But it's a start.",
+    "hold": 3.6
+   },
+   {
+    "t": "pause",
+    "s": 2.0
+   },
+   {
+    "t": "fade",
+    "to": "white",
+    "time": 2.5
+   },
+   {
+    "t": "text",
+    "text": "AWARENESS",
+    "hold": 3.0,
+    "size": 48,
+    "color": "accent"
+   },
+   {
+    "t": "pause",
+    "s": 1.0
+   }
+  ]
+ },
+ "end_burnout": {
+  "bg": "black",
+  "steps": [
+   {
+    "t": "state",
+    "state": "INTENSIFICATION",
+    "blend": 0.5
+   },
+   {
+    "t": "sfx",
+    "name": "heart",
+    "db": 0
+   },
+   {
+    "t": "pause",
+    "s": 0.4
+   },
+   {
+    "t": "sfx",
+    "name": "heart",
+    "db": 0
+   },
+   {
+    "t": "text",
+    "text": "ESSAY.",
+    "hold": 0.8,
+    "size": 60,
+    "color": "warn"
+   },
+   {
+    "t": "text",
+    "text": "ESSAY.",
+    "hold": 0.6,
+    "size": 70,
+    "color": "warn"
+   },
+   {
+    "t": "text",
+    "text": "ESSAY.",
+    "hold": 0.4,
+    "size": 84,
+    "color": "warn"
+   },
+   {
+    "t": "silence",
+    "fade": 0.1
+   },
+   {
+    "t": "pause",
+    "s": 2.0
+   },
+   {
+    "t": "text",
+    "text": "It was never one big thing.",
+    "hold": 3.0
+   },
+   {
+    "t": "pause",
+    "s": 1.0
+   },
+   {
+    "t": "text",
+    "text": "It was a hundred small escapes, and each one made the next one necessary.",
+    "hold": 4.0
+   },
+   {
+    "t": "pause",
+    "s": 1.4
+   },
+   {
+    "t": "text",
+    "text": "You are exhausted. That's not a failing.",
+    "hold": 3.4
+   },
+   {
+    "t": "pause",
+    "s": 1.0
+   },
+   {
+    "t": "text",
+    "text": "It's a signal.",
+    "hold": 3.2
+   },
+   {
+    "t": "pause",
+    "s": 2.0
+   },
+   {
+    "t": "text",
+    "text": "BURNOUT",
+    "hold": 3.0,
+    "size": 48,
+    "color": "warn"
+   },
+   {
+    "t": "pause",
+    "s": 1.0
+   }
+  ]
+ },
+ "end_false_productivity": {
+  "bg": "black",
+  "steps": [
+   {
+    "t": "silence",
+    "fade": 0.5
+   },
+   {
+    "t": "state",
+    "state": "ENDING",
+    "blend": 0.5
+   },
+   {
+    "t": "pause",
+    "s": 2.0
+   },
+   {
+    "t": "text",
+    "text": "The room is spotless.",
+    "hold": 2.6
+   },
+   {
+    "t": "pause",
+    "s": 1.0
+   },
+   {
+    "t": "text",
+    "text": "The files are organized. The research tabs are open. You're in great shape.",
+    "hold": 3.8
+   },
+   {
+    "t": "pause",
+    "s": 1.2
+   },
+   {
+    "t": "text",
+    "text": "And the essay is exactly where you left it.",
+    "hold": 3.4
+   },
+   {
+    "t": "pause",
+    "s": 1.4
+   },
+   {
+    "t": "text",
+    "text": "Being busy is not the same as doing the thing.",
+    "hold": 3.6
+   },
+   {
+    "t": "pause",
+    "s": 1.4
+   },
+   {
+    "t": "text",
+    "text": "Sometimes productivity is just avoidance in a nicer outfit.",
+    "hold": 3.8
+   },
+   {
+    "t": "pause",
+    "s": 1.6
+   },
+   {
+    "t": "text",
+    "text": "FALSE PRODUCTIVITY",
+    "hold": 3.0,
+    "size": 44,
+    "color": "warn"
+   },
+   {
+    "t": "pause",
+    "s": 1.0
+   }
+  ]
+ },
+ "end_loop": {
+  "bg": "black",
+  "steps": [
+   {
+    "t": "silence",
+    "fade": 0.5
+   },
+   {
+    "t": "state",
+    "state": "ENDING",
+    "blend": 0.5
+   },
+   {
+    "t": "pause",
+    "s": 2.0
+   },
+   {
+    "t": "text",
+    "text": "You chose to keep playing.",
+    "hold": 3.0
+   },
+   {
+    "t": "pause",
+    "s": 1.2
+   },
+   {
+    "t": "text",
+    "text": "That's allowed.",
+    "hold": 2.4
+   },
+   {
+    "t": "pause",
+    "s": 1.5
+   },
+   {
+    "t": "text",
+    "text": "Day 1.",
+    "hold": 2.6
+   },
+   {
+    "t": "pause",
+    "s": 1.8
+   }
+  ]
+ },
+ "final_message": {
+  "bg": "black",
+  "steps": [
+   {
+    "t": "silence",
+    "fade": 0.2
+   },
+   {
+    "t": "pause",
+    "s": 3.0
+   },
+   {
+    "t": "text",
+    "text": "Be honest.",
+    "hold": 3.0
+   },
+   {
+    "t": "pause",
+    "s": 1.8
+   },
+   {
+    "t": "text",
+    "text": "Are you currently playing this game to avoid something?",
+    "hold": 4.0
+   },
+   {
+    "t": "pause",
+    "s": 2.5
+   },
+   {
+    "t": "silence",
+    "fade": 0.1
+   },
+   {
+    "t": "text",
+    "text": "Maybe you don't need to answer.",
+    "hold": 3.4
+   },
+   {
+    "t": "pause",
+    "s": 1.6
+   },
+   {
+    "t": "text",
+    "text": "But you probably know.",
+    "hold": 4.0
+   },
+   {
+    "t": "pause",
+    "s": 3.0
+   }
+  ]
+ },
+ "smoke_scene": {
+  "bg": "black",
+  "bg_fade": 0.6,
+  "steps": [
+   {
+    "t": "silence",
+    "fade": 0.4
+   },
+   {
+    "t": "pause",
+    "s": 0.8
+   },
+   {
+    "t": "text",
+    "text": "You step outside for a minute.",
+    "hold": 2.0,
+    "size": 26
+   },
+   {
+    "t": "text",
+    "text": "It's quiet. The air is cold. Nothing changes.",
+    "hold": 2.4,
+    "size": 26
+   },
+   {
+    "t": "text",
+    "text": "The thought is still there when you come back.",
+    "hold": 2.6,
+    "size": 26
+   },
+   {
+    "t": "restore"
+   }
+  ]
+ },
+ "credits": {
+  "bg": "black",
+  "steps": [
+   {
+    "t": "text",
+    "text": "ANXIETY TRAP",
+    "hold": 3.0,
+    "size": 56,
+    "color": "warn"
+   },
+   {
+    "t": "text",
+    "text": "A game about starting.",
+    "hold": 2.4,
+    "size": 26
+   },
+   {
+    "t": "text",
+    "text": "Written, designed and built with care.",
+    "hold": 2.4,
+    "size": 24
+   },
+   {
+    "t": "text",
+    "text": "Thank you for playing.",
+    "hold": 2.8,
+    "size": 26
+   }
+  ]
+ },
+ "breathe": {
+  "steps": [
+   {
+    "t": "state",
+    "state": "CONFRONTATION",
+    "blend": 2.0
+   },
+   {
+    "t": "text",
+    "text": "You take a breath.",
+    "hold": 1.6,
+    "size": 28
+   },
+   {
+    "t": "text",
+    "text": "The feeling is still there. It's smaller when you look at it.",
+    "hold": 2.8,
+    "size": 24
+   },
+   {
+    "t": "settle"
+   }
+  ]
+ }
+}

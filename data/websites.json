@@ -1,0 +1,144 @@
+{
+ "tabs": {
+  "Feed": [
+   {
+    "title": "@dailymeme",
+    "text": "me: I'll start at 9.\nalso me at 9:01: what if I started at 10"
+   },
+   {
+    "title": "@pixel_cat",
+    "text": "A cat has been staring at a wall for 3 hours. He is unbothered. Be like him."
+   },
+   {
+    "title": "@lifehacks",
+    "text": "Hack: if you stare at the task long enough it becomes the next day's task."
+   },
+   {
+    "title": "@sam_online",
+    "text": "park later?? bring the good snacks"
+   },
+   {
+    "title": "@lifehacks",
+    "text": "You can't do it all. Do something. (Not that.)",
+    "conditions": [
+     "day>=2"
+    ]
+   },
+   {
+    "title": "@algorithm",
+    "text": "Still avoiding that essay?",
+    "conditions": [
+     "day>=3"
+    ],
+    "priority": 10
+   },
+   {
+    "title": "@algorithm",
+    "text": "People who stare at this feed for {stats.browse_count} sessions also stared at a blinking cursor.",
+    "conditions": [
+     "stats.browse_count>=3"
+    ],
+    "priority": 8
+   }
+  ],
+  "Videos": [
+   {
+    "title": "10 HOURS of Rain on a Window",
+    "text": "Videos you might like: Relaxing Rain Sounds"
+   },
+   {
+    "title": "How to Study Better (12 min)",
+    "text": "Video suggestion: How to Study Better (watching this counts as studying)"
+   },
+   {
+    "title": "Cat vs Cucumber Compilation",
+    "text": "4.2M views. Autoplay in 5... 4... 3..."
+   },
+   {
+    "title": "Videos you might like",
+    "text": "Videos you might like: 'Why You Procrastinate (And How to Stop)'",
+    "conditions": [
+     "day>=2"
+    ],
+    "priority": 6
+   },
+   {
+    "title": "Recommended",
+    "text": "You've watched 6 videos about productivity. You haven't started the essay.",
+    "conditions": [
+     "day>=3",
+     "stats.browse_count>=3"
+    ],
+    "priority": 9
+   }
+  ],
+  "News": [
+   {
+    "title": "Local library introduces 'quiet day'",
+    "text": "Residents report mixed feelings. Mostly silence."
+   },
+   {
+    "title": "Study: Most people start things at the last minute",
+    "text": "Researchers say they were meant to publish last week."
+   },
+   {
+    "title": "Weather: partly cloudy with a chance of delay",
+    "text": "Your forecast: the deadline arrives regardless."
+   },
+   {
+    "title": "Breaking: Deadline Still Tonight",
+    "text": "Sources confirm the deadline has not moved.",
+    "conditions": [
+     "day>=3"
+    ],
+    "priority": 7
+   }
+  ],
+  "Forums": [
+   {
+    "title": "Re: how do I start an essay??",
+    "text": "Top reply: 'Write one bad sentence.' 412 likes."
+   },
+   {
+    "title": "Anyone else just stare at the doc?",
+    "text": "Reply: Every. Single. Time."
+   },
+   {
+    "title": "Thread: avoiding vs resting",
+    "text": "Reply: Rest restores. Avoidance borrows. Interest is brutal.",
+    "conditions": [
+     "day>=2"
+    ],
+    "priority": 5
+   }
+  ],
+  "Shop": [
+   {
+    "title": "Ergonomic Desk Lamp (on sale)",
+    "text": "Because your lighting is the real problem."
+   },
+   {
+    "title": "Productivity Planner - $29",
+    "text": "Will definitely fix everything. Sold out of motivation."
+   },
+   {
+    "title": "Noise-cancelling headphones",
+    "text": "Shut out the world. Not the thoughts. We can't do that."
+   }
+  ],
+  "Memes": [
+   {
+    "title": "Brain at 3 AM",
+    "text": "'Remember that thing you said in 2014?' Yes. Always."
+   },
+   {
+    "title": "Me, finishing nothing",
+    "text": "But ORGANIZED. With color-coded tabs."
+   },
+   {
+    "title": "The essay and me",
+    "text": "Two lonely entities staring at each other across a deadline."
+   }
+  ]
+ }
+}

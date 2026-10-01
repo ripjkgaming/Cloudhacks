@@ -1,0 +1,374 @@
+{
+ "_doc": "Every activity has an immediate effect (felt now), a hidden effect (never shown, applied now) and a delayed effect (lands at the start of the next day). cost = time blocks consumed. avoidance=true marks it as avoidance. tags: false_productive marks activities that LOOK productive.",
+ "activities": {
+  "start_essay": {
+   "label": "Start essay",
+   "category": "work",
+   "cost": 1,
+   "avoidance": false,
+   "immediate": {
+    "anxiety": 8,
+    "fatigue": 4
+   },
+   "hidden": {
+    "avoidance": -6,
+    "motivation": 6,
+    "self_awareness": 4
+   },
+   "delayed": {
+    "pressure": -12,
+    "anxiety": -4
+   }
+  },
+  "friends": {
+   "label": "Hang out with friends",
+   "category": "social",
+   "cost": 2,
+   "avoidance": true,
+   "stat": "social_count",
+   "immediate": {
+    "relief": 12,
+    "anxiety": -6
+   },
+   "hidden": {
+    "avoidance": 10,
+    "pressure": 5
+   },
+   "delayed": {
+    "pressure": 5,
+    "anxiety": 5
+   }
+  },
+  "poker": {
+   "label": "Play poker",
+   "category": "game",
+   "cost": 1,
+   "avoidance": true,
+   "stat": "poker_count",
+   "immediate": {
+    "relief": 10,
+    "anxiety": -5,
+    "fatigue": 4
+   },
+   "hidden": {
+    "avoidance": 10,
+    "pressure": 5
+   },
+   "delayed": {
+    "pressure": 5,
+    "anxiety": 4
+   }
+  },
+  "gym": {
+   "label": "Lift weights",
+   "category": "fitness",
+   "cost": 1,
+   "avoidance": true,
+   "stat": "gym_count",
+   "tags": [
+    "false_productive"
+   ],
+   "immediate": {
+    "relief": 8,
+    "anxiety": -4,
+    "fatigue": 14
+   },
+   "hidden": {
+    "avoidance": 8,
+    "pressure": 4
+   },
+   "delayed": {
+    "pressure": 4,
+    "anxiety": 3
+   }
+  },
+  "smoke": {
+   "label": "Smoke",
+   "category": "habit",
+   "cost": 1,
+   "avoidance": true,
+   "stat": "smoke_count",
+   "immediate": {
+    "relief": 5,
+    "anxiety": -2,
+    "fatigue": 6
+   },
+   "hidden": {
+    "avoidance": 10,
+    "pressure": 6
+   },
+   "delayed": {
+    "pressure": 6,
+    "anxiety": 5
+   }
+  },
+  "videos": {
+   "label": "Watch videos",
+   "category": "media",
+   "cost": 1,
+   "avoidance": true,
+   "stat": "browse_count",
+   "immediate": {
+    "relief": 8,
+    "anxiety": -4,
+    "fatigue": 5
+   },
+   "hidden": {
+    "avoidance": 9,
+    "pressure": 5
+   },
+   "delayed": {
+    "pressure": 5,
+    "anxiety": 4
+   }
+  },
+  "browse": {
+   "label": "Browse the internet",
+   "category": "media",
+   "cost": 1,
+   "avoidance": true,
+   "stat": "browse_count",
+   "immediate": {
+    "relief": 8,
+    "anxiety": -4,
+    "fatigue": 4
+   },
+   "hidden": {
+    "avoidance": 8,
+    "pressure": 5
+   },
+   "delayed": {
+    "pressure": 5,
+    "anxiety": 4
+   }
+  },
+  "console": {
+   "label": "Play console",
+   "category": "game",
+   "cost": 1,
+   "avoidance": true,
+   "stat": "console_count",
+   "immediate": {
+    "relief": 10,
+    "anxiety": -5,
+    "fatigue": 5
+   },
+   "hidden": {
+    "avoidance": 9,
+    "pressure": 5
+   },
+   "delayed": {
+    "pressure": 5,
+    "anxiety": 4
+   }
+  },
+  "later": {
+   "label": "Do it later",
+   "category": "later",
+   "cost": 0,
+   "avoidance": true,
+   "stat": "later_count",
+   "immediate": {
+    "relief": 10,
+    "anxiety": -5
+   },
+   "hidden": {
+    "avoidance": 10,
+    "pressure": 2
+   },
+   "delayed": {
+    "pressure": 2,
+    "anxiety": 3
+   }
+  },
+  "leave": {
+   "label": "Leave computer",
+   "category": "leave",
+   "cost": 0,
+   "avoidance": true,
+   "immediate": {
+    "relief": 6,
+    "anxiety": -3
+   },
+   "hidden": {
+    "avoidance": 6,
+    "pressure": 2
+   },
+   "delayed": {
+    "pressure": 2,
+    "anxiety": 3
+   }
+  },
+  "sleep_early": {
+   "label": "Sleep",
+   "category": "sleep",
+   "cost": 3,
+   "avoidance": true,
+   "stat": "early_sleep",
+   "immediate": {
+    "relief": 8,
+    "anxiety": -4,
+    "fatigue": -30
+   },
+   "hidden": {
+    "avoidance": 6,
+    "pressure": 4
+   },
+   "delayed": {
+    "pressure": 4,
+    "anxiety": 3
+   }
+  },
+  "clean": {
+   "label": "Clean the room",
+   "category": "chore",
+   "cost": 1,
+   "avoidance": true,
+   "stat": "clean_count",
+   "tags": [
+    "false_productive"
+   ],
+   "immediate": {
+    "relief": 6,
+    "anxiety": -3,
+    "fatigue": 4
+   },
+   "hidden": {
+    "avoidance": 6,
+    "pressure": 3
+   },
+   "delayed": {
+    "pressure": 3,
+    "anxiety": 2
+   }
+  },
+  "organize": {
+   "label": "Organize files",
+   "category": "chore",
+   "cost": 1,
+   "avoidance": true,
+   "tags": [
+    "false_productive"
+   ],
+   "immediate": {
+    "relief": 6,
+    "anxiety": -3,
+    "fatigue": 3
+   },
+   "hidden": {
+    "avoidance": 6,
+    "pressure": 3
+   },
+   "delayed": {
+    "pressure": 3,
+    "anxiety": 2
+   }
+  },
+  "research": {
+   "label": "Research (just a bit)",
+   "category": "chore",
+   "cost": 1,
+   "avoidance": true,
+   "tags": [
+    "false_productive"
+   ],
+   "immediate": {
+    "relief": 6,
+    "anxiety": -2,
+    "fatigue": 4
+   },
+   "hidden": {
+    "avoidance": 6,
+    "pressure": 3
+   },
+   "delayed": {
+    "pressure": 3,
+    "anxiety": 2
+   }
+  },
+  "breathe": {
+   "label": "Sit with it",
+   "category": "reflect",
+   "cost": 0,
+   "avoidance": false,
+   "stat": "reflect_count",
+   "immediate": {
+    "anxiety": -3
+   },
+   "hidden": {
+    "self_awareness": 9,
+    "avoidance": -3
+   },
+   "delayed": {}
+  }
+ },
+ "menus": {
+  "computer_day1": [
+   "start_essay",
+   "friends",
+   "later",
+   "leave"
+  ],
+  "computer_day2": [
+   "start_essay",
+   "gym",
+   "friends",
+   "smoke",
+   "poker",
+   "videos"
+  ],
+  "computer_day3": [
+   "start_essay",
+   "later",
+   "leave",
+   "distract"
+  ],
+  "computer_late": [
+   "start_essay",
+   "later",
+   "distract",
+   "breathe"
+  ],
+  "distract": [
+   "friends",
+   "poker",
+   "gym",
+   "videos",
+   "smoke",
+   "console",
+   "clean",
+   "organize",
+   "research"
+  ],
+  "computer_escape": [
+   "start_essay",
+   "breathe",
+   "leave"
+  ]
+ },
+ "intensify_thresholds": [
+  25,
+  55,
+  85
+ ],
+ "pressure_thresholds": [
+  30,
+  60,
+  90
+ ],
+ "deadline_pressure": {
+  "1": 2,
+  "2": 5,
+  "3": 8,
+  "4": 9,
+  "5": 9,
+  "6": 9,
+  "7": 9
+ },
+ "burnout": {
+  "min_day": 4,
+  "pressure": 90,
+  "fatigue": 70
+ },
+ "false_productive_needed": 5
+}
