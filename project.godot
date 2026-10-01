@@ -6,6 +6,7 @@ config_version=5
 config/name="CYCLE"
 config/description="A first-person story about avoidance, relief, and the loop between them."
 run/main_scene="res://scenes/main.tscn"
+config/icon="res://assets/icon.svg"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [autoload]
