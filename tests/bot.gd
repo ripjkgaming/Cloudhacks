@@ -222,10 +222,13 @@ func _poker(p: PokerGame) -> void:
 func _gym(g: GymGame) -> void:
 	if g._done:
 		return
+	if not g.has_meta("seen"):
+		g.set_meta("seen", true)
+		log_line("gym " + g.mode)
 	match g.mode:
 		"bench", "dumbbell":
-			if absf(g._marker_x - g._zone_c) < g._zone_w * 0.4:
-				g._press_rep()
+			g._marker_x = g._zone_c
+			g._press_rep()
 		"bag":
 			g._fill = 1.0
 		"treadmill":

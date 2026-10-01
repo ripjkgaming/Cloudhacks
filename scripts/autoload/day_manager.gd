@@ -415,6 +415,8 @@ func _chore(id: String, via_computer: bool) -> void:
 func _go_outside(committed: String, spawn: String, bark_text: String) -> void:
 	outing = {"committed": committed, "gym": committed == "gym", "poker": false, "hangout": committed == "friends"}
 	await _release(false)
+	if committed == "gym":
+		spend_blocks(1)
 	Audio.play_sfx("door")
 	await UI.fade_to(Color.BLACK, 0.7)
 	await main.enter_neighborhood(spawn)
