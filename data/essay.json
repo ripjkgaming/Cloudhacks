@@ -1,0 +1,36 @@
+{
+  "_doc": "Each section offers three cards: q=2 strong, q=1 okay, q=0 weak. 'type' is the short line the player types. {subject} is replaced by the assignment topic.",
+  "sections": [
+    {"id": "thesis", "title": "Thesis", "hint": "One clear claim you can actually defend.",
+     "cards": [
+      {"q": 1, "text": "There are many views on {subject}, and this essay will look at some of them.", "type": "There are many views on this topic."},
+      {"q": 2, "text": "This essay argues that {subject} matters because it shapes everyday life in ways that are easy to overlook.", "type": "This matters because it shapes everyday life."},
+      {"q": 0, "text": "Since the dawn of time, humans have always had opinions about {subject}.", "type": "Since the dawn of time, humans have opinions."}]},
+    {"id": "intro", "title": "Introduction", "hint": "Set up the question. Don't write the whole essay here.",
+     "cards": [
+      {"q": 2, "text": "Begin with one concrete example, then narrow to the question the essay will answer.", "type": "Start with one concrete example."},
+      {"q": 0, "text": "Define every word in the title using a dictionary, then repeat the title.", "type": "Webster's dictionary defines the word."},
+      {"q": 1, "text": "Briefly introduce the topic and list the three points that follow.", "type": "This essay covers three main points."}]},
+    {"id": "evidence", "title": "Evidence", "hint": "A claim needs something under it.",
+     "cards": [
+      {"q": 0, "text": "Say that a lot of people agree and move on.", "type": "A lot of people agree on this."},
+      {"q": 2, "text": "Pick two specific sources or examples and explain exactly how each supports the thesis.", "type": "The first example supports this because"},
+      {"q": 1, "text": "Quote one source and summarise it without connecting it back.", "type": "One source states that this is true."}]},
+    {"id": "conclusion", "title": "Conclusion", "hint": "Land it. You're nearly there.",
+     "cards": [
+      {"q": 1, "text": "Restate the thesis and summarise the main points.", "type": "In conclusion, the main points are clear."},
+      {"q": 0, "text": "Introduce an entirely new argument in the last line.", "type": "However, there is one more thing."},
+      {"q": 2, "text": "Return to the opening example and show what has changed in how we see it.", "type": "Seen again, the example looks different."}]}
+  ],
+  "distractions": [
+    "Sam: you coming out??",
+    "New video from @pixel_cat",
+    "Theo: poker tonight, you in?",
+    "Your friend posted a story",
+    "3 new memes in your feed",
+    "Reminder: you haven't stretched today",
+    "Priya: did you see this??",
+    "Battery at 20%. Plug in the phone?",
+    "Sale: 40% off a planner"
+  ]
+}

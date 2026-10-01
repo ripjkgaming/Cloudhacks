@@ -1,0 +1,36 @@
+; Engine configuration file.
+config_version=5
+
+[application]
+
+config/name="Anxiety Trap"
+config/description="A first-person narrative choice game."
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+
+[autoload]
+
+Events="*res://scripts/autoload/events.gd"
+Settings="*res://scripts/autoload/settings.gd"
+GameState="*res://scripts/autoload/game_state.gd"
+Psychology="*res://scripts/autoload/psychology.gd"
+Narrative="*res://scripts/autoload/narrative.gd"
+Dialogue="*res://scripts/autoload/dialogue_system.gd"
+Audio="*res://scripts/autoload/audio_manager.gd"
+Saves="*res://scripts/autoload/save_system.gd"
+UI="*res://scripts/autoload/ui_manager.gd"
+Endings="*res://scripts/autoload/ending_manager.gd"
+Days="*res://scripts/autoload/day_manager.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+anti_aliasing/quality/msaa_3d=0
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

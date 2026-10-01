@@ -1,0 +1,95 @@
+{
+ "pools": {
+  "start": [
+   {
+    "text": "Poker night. Zero stakes, maximum ego.",
+    "priority": 1
+   },
+   {
+    "text": "Let's see what these cards have to say.",
+    "priority": 1
+   }
+  ],
+  "win_big": [
+   {
+    "text": "LET'S GOOOO.",
+    "priority": 1
+   },
+   {
+    "text": "Read 'em and weep!",
+    "priority": 1
+   }
+  ],
+  "win": [
+   {
+    "text": "Nice.",
+    "priority": 1
+   },
+   {
+    "text": "The pot is mine!",
+    "priority": 1
+   }
+  ],
+  "lose": [
+   {
+    "text": "Well. That happened.",
+    "priority": 1
+   },
+   {
+    "text": "My cards: betrayal.",
+    "priority": 1
+   },
+   {
+    "text": "Okay. Okay. Cool. Totally fine.",
+    "priority": 1
+   }
+  ],
+  "fold": [
+   {
+    "text": "Discretion is the better part of valor. Or whatever.",
+    "priority": 1
+   },
+   {
+    "text": "Folding. Strategically. Definitely not scared.",
+    "priority": 1
+   }
+  ],
+  "bust_opp": [
+   {
+    "text": "He's out of chips. You are a poker god.",
+    "priority": 1
+   }
+  ],
+  "bust_me": [
+   {
+    "text": "Out of chips. That's... honestly kind of funny.",
+    "priority": 1
+   }
+  ],
+  "leave": [
+   {
+    "text": "Enough poker.",
+    "priority": 1
+   },
+   {
+    "text": "One more hand. No. Okay, leaving.",
+    "priority": 1
+   },
+   {
+    "text": "Is it ten minutes or two hours? Nobody knows.",
+    "priority": 3,
+    "conditions": [
+     "stats.poker_count>=3"
+    ]
+   },
+   {
+    "text": "Poker was more interesting than the essay.",
+    "priority": 9,
+    "conditions": [
+     "stats.poker_count>=3",
+     "day>=3"
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,315 @@
+{
+ "pools": {
+  "invite_msg": [
+   {
+    "text": "You coming out?",
+    "priority": 1,
+    "speaker": "Sam"
+   },
+   {
+    "text": "We're at the park. Bring snacks.",
+    "priority": 1,
+    "speaker": "Theo"
+   },
+   {
+    "text": "You still haven't finished that assignment?",
+    "priority": 10,
+    "conditions": [
+     "day>=2",
+     "avoidance>=15"
+    ],
+    "speaker": "Priya"
+   },
+   {
+    "text": "You've been putting this off for days.",
+    "priority": 14,
+    "conditions": [
+     "day>=3",
+     "stats.avoidance_count>=5"
+    ],
+    "speaker": "Priya"
+   },
+   {
+    "text": "Do you actually want to come out, or are you avoiding something?",
+    "priority": 20,
+    "conditions": [
+     "day>=3",
+     "stats.avoidance_count>=8",
+     "stats.social_count>=2"
+    ],
+    "speaker": "Priya"
+   },
+   {
+    "text": "You've been playing a lot of poker lately.",
+    "priority": 16,
+    "conditions": [
+     "stats.poker_count>=3"
+    ],
+    "speaker": "Theo"
+   },
+   {
+    "text": "Hello? You alive in there?",
+    "priority": 4,
+    "conditions": [
+     "stats.later_count>=3"
+    ],
+    "speaker": "Sam"
+   },
+   {
+    "text": "We'll be here. Whenever you actually want to talk.",
+    "priority": 25,
+    "conditions": [
+     "cycle_broken>=1"
+    ],
+    "speaker": "Sam"
+   }
+  ],
+  "greet_sam": [
+   {
+    "text": "Hey! You came out.",
+    "priority": 1,
+    "speaker": "Sam"
+   },
+   {
+    "text": "Look who finally left the cave.",
+    "priority": 2,
+    "conditions": [
+     "day>=2"
+    ],
+    "speaker": "Sam"
+   },
+   {
+    "text": "Thought you were doing the essay today.",
+    "priority": 9,
+    "conditions": [
+     "day>=2",
+     "stats.avoidance_count>=4"
+    ],
+    "speaker": "Sam"
+   },
+   {
+    "text": "You okay? You've been weird.",
+    "priority": 12,
+    "conditions": [
+     "day>=3",
+     "pressure>=50"
+    ],
+    "speaker": "Sam"
+   }
+  ],
+  "greet_priya": [
+   {
+    "text": "Oh. Hi.",
+    "priority": 1,
+    "speaker": "Priya"
+   },
+   {
+    "text": "Is the assignment done?",
+    "priority": 8,
+    "conditions": [
+     "day>=2"
+    ],
+    "speaker": "Priya"
+   },
+   {
+    "text": "You've been putting this off for days.",
+    "priority": 12,
+    "conditions": [
+     "day>=3"
+    ],
+    "speaker": "Priya"
+   },
+   {
+    "text": "Do you actually want to be here, or are you avoiding something?",
+    "priority": 20,
+    "conditions": [
+     "day>=3",
+     "stats.avoidance_count>=8"
+    ],
+    "speaker": "Priya"
+   }
+  ],
+  "greet_theo": [
+   {
+    "text": "YOOOO. Poker?",
+    "priority": 1,
+    "speaker": "Theo"
+   },
+   {
+    "text": "You've been playing a lot of poker lately.",
+    "priority": 14,
+    "conditions": [
+     "stats.poker_count>=3"
+    ],
+    "speaker": "Theo"
+   },
+   {
+    "text": "Dude. Leg day. Right now. Say yes.",
+    "priority": 6,
+    "conditions": [
+     "stats.gym_count>=2"
+    ],
+    "speaker": "Theo"
+   }
+  ],
+  "joke": [
+   {
+    "text": "Why did the essay cross the road? It didn't. It's still in a folder called 'final_FINAL_2'.",
+    "priority": 1,
+    "speaker": "Sam"
+   },
+   {
+    "text": "I told my deadline I needed space. It gave me one night.",
+    "priority": 1,
+    "speaker": "Theo"
+   },
+   {
+    "text": "My productivity is like a Wi-Fi signal. One bar and prayers.",
+    "priority": 1,
+    "speaker": "Sam"
+   },
+   {
+    "text": "I'm not procrastinating. I'm pre-crastinating... the part where I do nothing.",
+    "priority": 2,
+    "speaker": "Theo"
+   },
+   {
+    "text": "The best time to start was yesterday. The second best time is when the panic arrives.",
+    "priority": 3,
+    "conditions": [
+     "day>=2"
+    ],
+    "speaker": "Priya"
+   }
+  ],
+  "snack": [
+   {
+    "text": "Tastes like freedom. Or sodium.",
+    "priority": 1
+   },
+   {
+    "text": "Best thing you've eaten all week. It's a low bar.",
+    "priority": 1
+   }
+  ],
+  "hangout_end": [
+   {
+    "text": "The sun goes lower. Time slips. That was exactly what you needed.",
+    "priority": 1
+   },
+   {
+    "text": "You laughed a lot. You can't remember why. That's the point, isn't it?",
+    "priority": 3,
+    "conditions": [
+     "day>=2"
+    ]
+   }
+  ]
+ },
+ "nodes": {
+  "talk_sam": {
+   "pool": "greet_sam",
+   "next": "menu_sam"
+  },
+  "menu_sam": {
+   "speaker": "Sam",
+   "text": "So what's the plan?",
+   "choices": [
+    {
+     "text": "Sit and hang out",
+     "next": "hang",
+     "event": "friends_hangout"
+    },
+    {
+     "text": "Tell me a joke",
+     "next": "joke_sam"
+    },
+    {
+     "text": "Not now.",
+     "next": ""
+    }
+   ]
+  },
+  "joke_sam": {
+   "pool": "joke",
+   "next": "menu_sam"
+  },
+  "talk_priya": {
+   "pool": "greet_priya",
+   "next": "menu_priya"
+  },
+  "menu_priya": {
+   "speaker": "Priya",
+   "text": "Walk with me or what?",
+   "choices": [
+    {
+     "text": "Sit and hang out",
+     "next": "hang",
+     "event": "friends_hangout"
+    },
+    {
+     "text": "I'm fine. Really.",
+     "conditions": [
+      "day>=3"
+     ],
+     "next": "priya_fine"
+    },
+    {
+     "text": "Not now.",
+     "next": ""
+    }
+   ]
+  },
+  "priya_fine": {
+   "speaker": "Priya",
+   "text": "Mm. Okay. The door's open though.",
+   "effects": {
+    "self_awareness": 4
+   },
+   "next": ""
+  },
+  "talk_theo": {
+   "pool": "greet_theo",
+   "next": "menu_theo"
+  },
+  "menu_theo": {
+   "speaker": "Theo",
+   "text": "So? What are we doing?",
+   "choices": [
+    {
+     "text": "Play poker",
+     "next": "poker_go",
+     "event": "play_poker"
+    },
+    {
+     "text": "Go to the gym",
+     "next": "gym_go"
+    },
+    {
+     "text": "Sit and hang out",
+     "next": "hang",
+     "event": "friends_hangout"
+    },
+    {
+     "text": "Not now.",
+     "next": ""
+    }
+   ]
+  },
+  "poker_go": {
+   "speaker": "Theo",
+   "text": "Deal me in. I mean you. Deal ME in.",
+   "next": ""
+  },
+  "gym_go": {
+   "speaker": "Theo",
+   "text": "Gym's right over there. Don't skip leg day. I'll know.",
+   "next": ""
+  },
+  "hang": {
+   "speaker": "",
+   "text": "You sit down with them. Nobody mentions the assignment. It feels amazing.",
+   "next": ""
+  }
+ }
+}

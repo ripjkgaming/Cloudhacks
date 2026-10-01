@@ -1,0 +1,167 @@
+{
+ "pools": {
+  "assignment_callback": [
+   {
+    "text": "You were here {stats.last_assignment_seconds} seconds last time.",
+    "priority": 14,
+    "conditions": [
+     "stats.last_assignment_seconds>0",
+     "stats.last_assignment_seconds<=20",
+     "stats.assignment_views>=2"
+    ]
+   },
+   {
+    "text": "You looked at it {stats.assignment_views} times.",
+    "priority": 12,
+    "conditions": [
+     "stats.assignment_views>=10"
+    ]
+   },
+   {
+    "text": "That was fast.",
+    "priority": 15,
+    "conditions": [
+     "stats.fast_avoid>=2",
+     "stats.assignment_views>=3"
+    ]
+   },
+   {
+    "text": "You almost did it.",
+    "priority": 18,
+    "conditions": [
+     "stats.quit_essay>=1",
+     "essay_done==0"
+    ]
+   },
+   {
+    "text": "It hasn't changed. You have.",
+    "priority": 8,
+    "conditions": [
+     "day>=4"
+    ]
+   },
+   {
+    "text": "Still just a document.",
+    "priority": 5,
+    "conditions": [
+     "day>=2"
+    ]
+   },
+   {
+    "text": "The cursor blinks. It has all the time in the world.",
+    "priority": 4
+   }
+  ],
+  "notification": [
+   {
+    "text": "New message from Sam.",
+    "priority": 1
+   },
+   {
+    "text": "You have unfinished business.",
+    "priority": 8,
+    "conditions": [
+     "day>=3"
+    ]
+   },
+   {
+    "text": "Reminder: Assignment 4.",
+    "priority": 5,
+    "conditions": [
+     "day>=2"
+    ]
+   },
+   {
+    "text": "Battery low. So are you.",
+    "priority": 3,
+    "conditions": [
+     "fatigue>=60"
+    ]
+   },
+   {
+    "text": "Calendar: Essay deadline in a few hours.",
+    "priority": 9,
+    "conditions": [
+     "day>=3"
+    ]
+   },
+   {
+    "text": "Still avoiding that essay?",
+    "priority": 14,
+    "conditions": [
+     "day>=3",
+     "avoidance>=40"
+    ]
+   },
+   {
+    "text": "USER DETECTED.",
+    "priority": 20,
+    "conditions": [
+     "day>=4",
+     "flag.fw2"
+    ]
+   }
+  ],
+  "messages": [
+   {
+    "text": "Sam: You coming out?",
+    "priority": 1,
+    "conditions": [
+     "day==1"
+    ]
+   },
+   {
+    "text": "Theo: Poker tonight. Bring chips (imaginary).",
+    "priority": 1
+   },
+   {
+    "text": "Priya: Did you finish the assignment?",
+    "priority": 5,
+    "conditions": [
+     "day>=2"
+    ]
+   },
+   {
+    "text": "Priya: You've been putting this off for days.",
+    "priority": 9,
+    "conditions": [
+     "day>=3",
+     "stats.avoidance_count>=5"
+    ]
+   },
+   {
+    "text": "Priya: Do you actually want to come out, or are you avoiding something?",
+    "priority": 15,
+    "conditions": [
+     "day>=3",
+     "stats.avoidance_count>=8"
+    ]
+   },
+   {
+    "text": "Theo: You've been playing a lot of poker lately.",
+    "priority": 12,
+    "conditions": [
+     "stats.poker_count>=3"
+    ]
+   },
+   {
+    "text": "Mom: Eat something that isn't toast!",
+    "priority": 2
+   },
+   {
+    "text": "Unknown: Are you still there?",
+    "priority": 20,
+    "conditions": [
+     "day>=4",
+     "flag.fw2"
+    ]
+   }
+  ],
+  "you_summary_comment": [
+   {
+    "text": "Interesting.",
+    "priority": 1
+   }
+  ]
+ }
+}

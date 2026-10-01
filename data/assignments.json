@@ -1,0 +1,15 @@
+{
+  "topics": [
+    "the role of public libraries in modern communities",
+    "how the printing press changed European society",
+    "whether cities should prioritise bicycles over cars",
+    "the causes and consequences of the 1929 stock market crash",
+    "the ethics of using animals in medical research",
+    "how social media has changed political campaigns",
+    "the impact of urban green spaces on public health",
+    "whether standardised testing measures learning",
+    "the legacy of the Industrial Revolution on modern labour",
+    "how language shapes the way we think"
+  ],
+  "prompt": "Write a 1,500-word essay discussing {subject}. Include a clear thesis, at least two pieces of supporting evidence, and a conclusion."
+}
