@@ -173,7 +173,7 @@ func _choose_activity() -> String:
 		"burnout":
 			return ["gym", "poker", "smoke", "videos"][_turns % 4]
 		"false":
-			return ["clean", "organize", "research", "gym", "organize"][_turns % 5]
+			return ["clean", "organize", "research"][_turns % 3]
 		"aware":
 			if GameState.cycle_broken:
 				return "breathe"
