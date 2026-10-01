@@ -55,7 +55,7 @@
    },
    {
     "t": "text",
-    "text": "ANXIETY TRAP",
+    "text": "CYCLE",
     "hold": 3.5,
     "size": 64,
     "color": "warn"
@@ -1120,7 +1120,7 @@
   "steps": [
    {
     "t": "text",
-    "text": "ANXIETY TRAP",
+    "text": "CYCLE",
     "hold": 3.0,
     "size": 56,
     "color": "warn"

@@ -20,7 +20,7 @@ static func main_menu(on_choice: Callable) -> Control:
 	vb.custom_minimum_size = Vector2(340, 0)
 	vb.add_theme_constant_override("separation", 14)
 	root.add_child(vb)
-	var t := UITheme.label("ANXIETY TRAP", 52, Color("f2e6d0"))
+	var t := UITheme.label("CYCLE", 52, Color("f2e6d0"))
 	t.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vb.add_child(t)
 	var sub := UITheme.label("a choice-driven experience", 18, Color(1, 1, 1, 0.5))

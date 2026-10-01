@@ -21,7 +21,7 @@ func _ready() -> void:
 	add_child(world)
 	UI.set_black()
 	_register_hooks()
-	DisplayServer.window_set_title("Anxiety Trap")
+	DisplayServer.window_set_title("CYCLE")
 	await return_to_menu()
 	for a in OS.get_cmdline_user_args():
 		if a.begins_with("--bot"):

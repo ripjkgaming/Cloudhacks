@@ -1,4 +1,4 @@
-# ANXIETY TRAP
+# CYCLE
 
 A first-person 3D narrative choice game (Godot 4.3, GL Compatibility renderer, low-poly/code-built art).
 It looks like a cozy life sim. It is secretly about the avoidance → relief → pressure loop.

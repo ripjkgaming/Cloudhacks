@@ -11,6 +11,8 @@ const ACTIONS := {
 	"interact": {"label": "Interact", "key": KEY_E},
 	"sprint": {"label": "Walk faster", "key": KEY_SHIFT},
 	"crouch": {"label": "Crouch", "key": KEY_CTRL},
+	"jump": {"label": "Jump", "key": KEY_SPACE},
+	"phone": {"label": "Phone", "key": KEY_Q},
 	"flashlight": {"label": "Flashlight", "key": KEY_F},
 	"pause": {"label": "Pause", "key": KEY_ESCAPE},
 }
