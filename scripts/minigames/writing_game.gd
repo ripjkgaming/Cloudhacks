@@ -31,15 +31,15 @@ var _paragraphs: Array = []
 var _finished := false
 
 func _ready() -> void:
-	set_anchors_preset(Control.PRESET_FULL_RECT)
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	data = Util.load_json("res://data/essay.json")
 	_section = GameState.essay_sections_done
 	var dim := ColorRect.new()
 	dim.color = Color(0.03, 0.04, 0.06, 0.94)
-	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+	dim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(dim)
 	var root := HBoxContainer.new()
-	root.set_anchors_preset(Control.PRESET_FULL_RECT)
+	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	root.offset_left = 60
 	root.offset_right = -60
 	root.offset_top = 50

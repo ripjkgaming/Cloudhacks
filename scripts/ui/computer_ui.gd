@@ -26,15 +26,13 @@ var _you_shake := 0.0
 var _you_btn: Control
 
 func _ready() -> void:
-	set_anchors_preset(Control.PRESET_FULL_RECT)
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var dim := ColorRect.new()
 	dim.color = Color(0.01, 0.01, 0.02, 0.97)
-	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+	dim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(dim)
 	var bezel := Panel.new()
-	bezel.set_anchors_preset(Control.PRESET_CENTER)
-	bezel.size = SCREEN + Vector2(28, 28)
-	bezel.position = -bezel.size / 2.0
+	UITheme.center(bezel, SCREEN + Vector2(28, 28))
 	bezel.add_theme_stylebox_override("panel", UITheme.box(Color("15161b"), 18, Color("2b2d35"), 3))
 	add_child(bezel)
 	_desk = Panel.new()

@@ -58,3 +58,14 @@ static func button(text: String, size: int = 20) -> Button:
 	b.add_theme_font_size_override("font_size", size)
 	b.focus_mode = Control.FOCUS_NONE
 	return b
+
+## Center a control with an explicit size, independent of parent size (works before add_child).
+static func center(c: Control, size: Vector2, offset: Vector2 = Vector2.ZERO) -> void:
+	c.anchor_left = 0.5
+	c.anchor_right = 0.5
+	c.anchor_top = 0.5
+	c.anchor_bottom = 0.5
+	c.offset_left = -size.x / 2.0 + offset.x
+	c.offset_right = size.x / 2.0 + offset.x
+	c.offset_top = -size.y / 2.0 + offset.y
+	c.offset_bottom = size.y / 2.0 + offset.y

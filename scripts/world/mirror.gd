@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 	var dist := to_mirror.length()
 	var fwd := -player.cam.global_transform.basis.z
 	var facing := fwd.dot(to_mirror.normalized())
-	var visible_to_player := dist < 7.0 and facing > 0.25
+	var visible_to_player := dist < 8.0
 	_vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS if visible_to_player else SubViewport.UPDATE_DISABLED
 	if _gaze > 0.0:
 		_gaze -= delta

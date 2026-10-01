@@ -70,18 +70,9 @@ func _build_shell() -> void:
 	var wall := Color("d9c5a8")
 	var trim := Color("f1e8d8")
 	var fl := Build.box(self, Vector3(W + 0.2, 0.1, D + 0.2), Vector3(0, -0.05, 0), Color("a67c52"), true, 0.65)
-	var noise := FastNoiseLite.new()
-	noise.frequency = 0.04
-	var nt := NoiseTexture2D.new()
-	nt.noise = noise
-	nt.width = 256
-	nt.height = 256
-	var fm := StandardMaterial3D.new()
-	fm.albedo_color = Color("b88a5c")
-	fm.albedo_texture = nt
-	fm.roughness = 0.6
-	fm.uv1_scale = Vector3(6, 5, 1)
-	fl.material_override = fm
+	fl.material_override = Build.mat(Color("b88a5c"), 0.6)
+	for i in range(1, 12):
+		Build.box(self, Vector3(0.012, 0.004, D), Vector3(-W / 2 + i * W / 12.0, 0.003, 0), Color("96704a"))
 	Build.box(self, Vector3(W + 0.2, 0.1, D + 0.2), Vector3(0, H + 0.05, 0), Color("efe7da"), true)
 	Build.box(self, Vector3(W + 0.2, H, 0.1), Vector3(0, H / 2, -D / 2 - 0.05), wall, true)           # north
 	Build.box(self, Vector3(0.1, H, D + 0.2), Vector3(-W / 2 - 0.05, H / 2, 0), wall, true)           # west
@@ -105,7 +96,7 @@ func _build_shell() -> void:
 	Build.box(self, Vector3(0.06, 1.25, 0.05), Vector3(W / 2 - 0.03, 1.5, 0.15), frame)
 	Build.box(self, Vector3(0.05, 1.2, 0.03), Vector3(W / 2 - 0.03, 1.5, -0.6), frame)
 	var gm := StandardMaterial3D.new()
-	gm.albedo_color = Color(0.7, 0.85, 1.0, 0.25)
+	gm.albedo_color = Color(0.7, 0.85, 1.0, 0.08)
 	gm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	gm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	window_glass = Build.quad(self, Vector2(1.45, 1.2), Vector3(W / 2 - 0.02, 1.5, -0.6), gm, Vector3(0, -90, 0))
@@ -458,7 +449,7 @@ func refresh() -> void:
 	sky_mat.ground_horizon_color = sky_hor
 	sky_mat.ground_bottom_color = sky_top.darkened(0.5)
 	var gm: StandardMaterial3D = window_glass.material_override
-	gm.albedo_color = Color(sky_hor.r, sky_hor.g, sky_hor.b, 0.28)
+	gm.albedo_color = Color(sky_hor.r, sky_hor.g, sky_hor.b, 0.1)
 	_screen_refresh()
 
 func _screen_refresh() -> void:

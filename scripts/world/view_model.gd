@@ -7,8 +7,8 @@ var arm_r: Node3D
 var held: Node3D
 var typing := false
 var _t := 0.0
-var _rest_l := Vector3(-0.2, -0.27, -0.28)
-var _rest_r := Vector3(0.2, -0.27, -0.28)
+var _rest_l := Vector3(-0.17, -0.3, -0.3)
+var _rest_r := Vector3(0.17, -0.3, -0.3)
 var _tw: Tween
 var _sway := Vector2.ZERO
 
@@ -29,9 +29,9 @@ func setup(custom: Dictionary) -> void:
 func _make_arm(shirt: Color, skin: Color, long_sleeve: bool, side: float) -> Node3D:
 	var n := Node3D.new()
 	n.rotation_degrees = Vector3(-8, -side * 6.0, 0)
-	var sleeve := Build.capsule(n, 0.045, 0.38, Vector3(0, 0, 0.12), shirt)
+	var sleeve := Build.capsule(n, 0.032, 0.38, Vector3(0, 0, 0.12), shirt)
 	sleeve.rotation_degrees = Vector3(90, 0, 0)
-	var fore := Build.capsule(n, 0.038, 0.3, Vector3(0, 0, -0.17), shirt if long_sleeve else skin)
+	var fore := Build.capsule(n, 0.027, 0.3, Vector3(0, 0, -0.17), shirt if long_sleeve else skin)
 	fore.rotation_degrees = Vector3(90, 0, 0)
 	var hand := Build.box(n, Vector3(0.075, 0.035, 0.1), Vector3(0, 0, -0.38), skin)
 	Build.box(n, Vector3(0.025, 0.02, 0.05), Vector3(side * -0.04, 0.0, -0.4), skin)  # thumb

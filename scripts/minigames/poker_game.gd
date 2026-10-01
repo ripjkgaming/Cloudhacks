@@ -34,7 +34,7 @@ signal _acted
 signal _next
 
 func _ready() -> void:
-	set_anchors_preset(Control.PRESET_FULL_RECT)
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	engine = PokerEngine.new()
 	engine.scripted = not GameState.has_flag("poker_first_done")
 	_build()
@@ -43,19 +43,15 @@ func _ready() -> void:
 func _build() -> void:
 	var dim := ColorRect.new()
 	dim.color = Color(0.02, 0.03, 0.04, 0.9)
-	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+	dim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(dim)
 	var felt := Panel.new()
-	felt.set_anchors_preset(Control.PRESET_CENTER)
-	felt.size = Vector2(1060, 640)
-	felt.position = Vector2(-530, -320)
+	UITheme.center(felt, Vector2(1060, 640))
 	var sb := UITheme.box(Color("1f5c3e"), 90, Color("5a3f2e"), 14)
 	felt.add_theme_stylebox_override("panel", sb)
 	add_child(felt)
 	var root := Control.new()
-	root.set_anchors_preset(Control.PRESET_CENTER)
-	root.position = Vector2(-530, -320)
-	root.size = Vector2(1060, 640)
+	UITheme.center(root, Vector2(1060, 640))
 	add_child(root)
 	_opp_label = UITheme.label("", 20)
 	_opp_label.position = Vector2(380, 18)

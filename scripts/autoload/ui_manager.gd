@@ -75,7 +75,7 @@ func _mk_layer(l: int) -> CanvasLayer:
 	return c
 
 func _full(c: Control) -> void:
-	c.set_anchors_preset(Control.PRESET_FULL_RECT)
+	c.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	c.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 # ---------------------------------------------------------------- build
