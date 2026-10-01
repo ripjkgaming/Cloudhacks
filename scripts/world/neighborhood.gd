@@ -36,47 +36,44 @@ func _build_env() -> void:
 	sky_mat = ProceduralSkyMaterial.new()
 	sky.sky_material = sky_mat
 	env.sky = sky
-	env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
-	env.ambient_light_energy = 0.9
+	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	env.ambient_light_color = Color(0.72, 0.8, 0.92)
+	env.ambient_light_energy = 0.45
 	env.tonemap_mode = Environment.TONE_MAPPER_FILMIC
-	env.glow_enabled = true
-	env.glow_intensity = 0.3
-	env.fog_enabled = true
-	env.fog_density = 0.004
 	we.environment = env
 	add_child(we)
 	sun = DirectionalLight3D.new()
 	sun.rotation_degrees = Vector3(-48, -35, 0)
 	sun.shadow_enabled = true
 	sun.directional_shadow_max_distance = 40.0
+	sun.shadow_bias = 0.08
 	add_child(sun)
 
 func apply_time_of_day() -> void:
 	var tod := GameState.block
 	var cols := [Color(1.0, 0.97, 0.9), Color(1.0, 0.9, 0.72), Color(1.0, 0.68, 0.45), Color(0.5, 0.58, 0.85)]
-	var en := [1.1, 1.2, 0.9, 0.25]
+	var en := [0.55, 0.6, 0.5, 0.15]
 	sun.light_color = cols[tod]
 	sun.light_energy = en[tod]
 	sun.rotation_degrees.x = [-52.0, -38.0, -14.0, -30.0][tod]
 	sky_mat.sky_top_color = [Color("6fb4ee"), Color("78aee0"), Color("5a6fb0"), Color("101830")][tod]
 	sky_mat.sky_horizon_color = [Color("dce9f0"), Color("f3d9b0"), Color("f09a6a"), Color("1c2442")][tod]
 	sky_mat.ground_horizon_color = sky_mat.sky_horizon_color
-	env.fog_light_color = sky_mat.sky_horizon_color
-	env.ambient_light_energy = [0.9, 0.85, 0.6, 0.3][tod]
+	env.ambient_light_energy = [0.4, 0.38, 0.3, 0.2][tod]
 
 func set_bright_day() -> void:
 	sun.light_color = Color(1.0, 0.97, 0.9)
-	sun.light_energy = 1.3
+	sun.light_energy = 0.6
 	sun.rotation_degrees.x = -50.0
 	sky_mat.sky_top_color = Color("6fb4ee")
 	sky_mat.sky_horizon_color = Color("e6f1f7")
-	env.ambient_light_energy = 1.0
+	env.ambient_light_energy = 0.5
 
 func _build_ground() -> void:
-	Build.box(self, Vector3(120, 0.2, 120), Vector3(0, -0.1, -20), Color("7fae6a"), true)
+	Build.box(self, Vector3(120, 0.2, 120), Vector3(0, -0.1, -20), Color("5c8a4c"), true)
 	Build.box(self, Vector3(120, 0.02, 6), Vector3(0, 0.01, 12), Color("55575c"))          # road
-	Build.box(self, Vector3(120, 0.04, 2.5), Vector3(0, 0.02, 8.4), Color("c9c6bd"))         # sidewalk
-	Build.box(self, Vector3(40, 0.04, 16), Vector3(-3, 0.02, -8), Color("bfb8a6"))           # plaza
+	Build.box(self, Vector3(120, 0.04, 2.5), Vector3(0, 0.02, 8.4), Color("a09d94"))         # sidewalk
+	Build.box(self, Vector3(40, 0.04, 16), Vector3(-3, 0.02, -8), Color("8f8a7a"))           # plaza
 	for i in range(-6, 7):
 		Build.box(self, Vector3(1.6, 0.025, 0.12), Vector3(i * 6.0, 0.03, 12), Color("e8e2d0"))
 
@@ -242,4 +239,4 @@ func _process(delta: float) -> void:
 func spawn_point(where: String) -> Array:
 	if where == "gym":
 		return [Vector3(14.0, 0.0, -3.0), -PI / 2]
-	return [Vector3(0, 0.0, 3.5), 0.0]        # outside the apartment, facing the park (-Z)
+	return [Vector3(0, 0.0, 0.3), 0.0]        # outside the apartment, facing the park (-Z)

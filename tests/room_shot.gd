@@ -33,6 +33,7 @@ func _ready() -> void:
 	player.pitch = deg_to_rad(pitch)
 	for i in 20:
 		await get_tree().process_frame
+	print("player y=", player.global_position.y, " floor=", player.is_on_floor())
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(out)
 	get_tree().quit()

@@ -71,10 +71,10 @@ func leave_room() -> void:
 	await _main().enter_neighborhood("door")
 	_main().neighborhood.set_bright_day()
 	Audio.set_ambience("outdoor")
-	p.set_pose(Vector3(0, 0, 3.5), 0.0)
+	p.set_pose(Vector3(0, 0, 0.3), 0.0)
 	await UI.fade_clear(2.0)
 	var tw := create_tween()
-	tw.tween_method(func(v: float): p.global_position = Vector3(0, 0, 3.5 - v), 0.0, 3.0, 4.0)
+	tw.tween_method(func(v: float): p.global_position = Vector3(0, 0, 0.3 - v), 0.0, 3.0, 4.0)
 	await tw.finished
 	await UI.run_sequence("end_true_outro")
 	await _credits_and_close(true)
