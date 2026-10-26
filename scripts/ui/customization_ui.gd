@@ -22,7 +22,7 @@ var _labels := {}
 var _vp: SubViewport
 
 func _ready() -> void:
-	set_anchors_preset(Control.PRESET_FULL_RECT)
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)   # in the tree already: a plain anchor preset would keep our 0x0 size
 	var bg := ColorRect.new()
 	bg.color = Color("14161d")
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)

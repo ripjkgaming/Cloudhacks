@@ -8,7 +8,7 @@ var _rebinding := ""
 var _bind_buttons := {}
 
 func _ready() -> void:
-	set_anchors_preset(Control.PRESET_FULL_RECT)
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)   # in the tree already: a plain anchor preset would keep our 0x0 size
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	var dim := ColorRect.new()
 	dim.color = Color(0.03, 0.03, 0.05, 0.96)

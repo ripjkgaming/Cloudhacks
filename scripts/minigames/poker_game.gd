@@ -34,7 +34,7 @@ signal _acted
 signal _next
 
 func _ready() -> void:
-	set_anchors_preset(Control.PRESET_FULL_RECT)
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)   # in the tree already: a plain anchor preset would keep our 0x0 size
 	engine = PokerEngine.new()
 	engine.scripted = not GameState.has_flag("poker_first_done")
 	_build()

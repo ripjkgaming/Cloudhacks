@@ -31,7 +31,7 @@ var _paragraphs: Array = []
 var _finished := false
 
 func _ready() -> void:
-	set_anchors_preset(Control.PRESET_FULL_RECT)
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)   # in the tree already: a plain anchor preset would keep our 0x0 size
 	data = Util.load_json("res://data/essay.json")
 	_section = GameState.essay_sections_done
 	var dim := ColorRect.new()
@@ -142,10 +142,11 @@ func _show_pick() -> void:
 	_hint.text = s["hint"] + "\nChoose how to write it."
 	_status.text = ""
 	for card in s["cards"]:
-		var b := UITheme.button(Dialogue.fill(String(card["text"]).replace("{subject}", GameState.subject)), 18)
+		var label := Dialogue.fill(String(card["text"]).replace("{subject}", GameState.subject))
+		var b := UITheme.button(label, 18)
 		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		b.custom_minimum_size = Vector2(0, 56)
+		b.custom_minimum_size = Vector2(0, 28.0 * ceilf(label.length() / 56.0) + 30.0)   # a button does not grow with wrapped text
 		b.pressed.connect(func(): _pick(card))
 		_cards_box.add_child(b)
 
