@@ -532,8 +532,9 @@ func _opening() -> void:
 	_start_text("cin_opening", true)
 	await _wait(5.0)
 	_beat("lines")
-	await _finish_text()
+	await _wait(3.4)
 	_beat("title")
+	await _finish_text()
 	_prop(_ring, "modulate:a", 0.0, 0.9)
 	_bars(0.0, 0.8)
 	await _wait(0.9)
@@ -843,13 +844,13 @@ func _end_loop() -> void:
 	_clock.text = "DAY %d" % day
 	_prop(_clock, "modulate:a", 1.0, 0.5)
 	if _in_room():
+		# a dolly zoom on the room from the doorway: the camera backs away while the lens tightens
 		_detach()
-		var p := _player()
-		var eye := p.cam.global_position
-		var back := eye + (-p.cam.global_transform.basis.z) * -1.4
+		var look := Vector3(0.7, -0.1, -1.0)
+		_apply_cam(_pose(Vector3(-0.6, 1.5, 1.2), look))
 		var tw := _tw()
 		_hold_cam(tw, 0.3)
-		_leg(tw, _pose(back, -p.cam.global_transform.basis.z), 5.0, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		_leg(tw, _pose(Vector3(-1.0, 1.55, 2.3), look), 5.0)
 		_fov(Settings.fov - 30.0, 5.0)
 	var count := _tw()
 	count.tween_interval(1.0)

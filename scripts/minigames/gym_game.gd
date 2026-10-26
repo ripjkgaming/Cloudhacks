@@ -25,6 +25,7 @@ var _running := false
 var _score_acc := 0.0
 var _done := false
 var _pulse := 0.0
+var _stop: Button
 
 func _ready() -> void:
 	set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -53,9 +54,9 @@ func _ready() -> void:
 	var hint := UITheme.label("E / Space / click", 15, Color(1, 1, 1, 0.45))
 	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vb.add_child(hint)
-	var quit := UITheme.button("Stop")
-	quit.pressed.connect(func(): _finish())
-	vb.add_child(quit)
+	_stop = UITheme.button("Stop")
+	_stop.pressed.connect(func(): _finish())
+	vb.add_child(_stop)
 	_start()
 	if title_override != "":
 		_title.text = title_override
@@ -102,6 +103,12 @@ func _is_release(e: InputEvent) -> bool:
 func _input(e: InputEvent) -> void:
 	if _done or not _running:
 		return
+	if e.is_action_pressed("pause"):
+		get_viewport().set_input_as_handled()
+		_finish()
+		return
+	if e is InputEventMouseButton and _stop.get_global_rect().has_point(e.position):
+		return                      # the Stop button gets its own clicks
 	if _is_press(e):
 		get_viewport().set_input_as_handled()
 		_hold = true
@@ -194,5 +201,5 @@ func _finish() -> void:
 		"bag":
 			score = clampf(_fill, 0.0, 1.0)
 		"treadmill":
-			score = clampf(_score_acc / 10.0, 0.0, 1.0) if _time <= 0 else clampf(_score_acc / 10.0, 0.0, 1.0)
+			score = clampf(_score_acc / 10.0, 0.0, 1.0)
 	finished.emit({"score": score, "mode": mode})
