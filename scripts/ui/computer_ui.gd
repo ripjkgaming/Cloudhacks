@@ -561,5 +561,5 @@ func _open_you() -> void:
 	var tw := create_tween()
 	tw.tween_interval(1.4)
 	tw.tween_callback(func():
-		interesting.text = "Interesting."
+		interesting.text = Dialogue.pool_text("computer", "you_summary_comment", "Interesting.")
 		Audio.play_sfx("heart", -10.0))

@@ -486,7 +486,7 @@ func on_outdoor_interact(id: String) -> void:
 			UI.bark("The boombox plays something warm." if k != "none" else "You switch the boombox off. Birds.")
 		"bench":
 			Psychology.apply({"relief": 2})
-			UI.bark("You sit for a minute. The sun is nice.")
+			UI.bark(Dialogue.pool_text("interactions", "outdoor_bench", "You sit for a minute. The sun is nice."))
 		"gym_bench", "gym_dumbbell", "gym_bag", "gym_treadmill":
 			await _gym_station(id)
 	if not Endings.running:
@@ -610,6 +610,7 @@ func _door() -> void:
 		if c == 0:
 			await Endings.start("awareness")
 			return
+		_bark_for("door_cycle")
 		unlock()
 		return
 	if is_night():

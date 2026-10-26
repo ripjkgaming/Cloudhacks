@@ -74,7 +74,7 @@ func _process(delta: float) -> void:
 		_finish("ENDING " + _first_ending)
 		return
 	if int(_t) % 10 == 0 and int(_t) != int(_t - delta / maxf(Engine.time_scale, 0.001)):
-		print("[bot] t=%d frames=%d locked=%s adv=%s choice=%s screens=%d" % [int(_t), Engine.get_process_frames(), Days.locked, UI._awaiting_advance, UI._awaiting_choice, UI._screen_layer.get_child_count()])
+		print("[bot] t=%d fps=%d frames=%d locked=%s adv=%s choice=%s screens=%d" % [int(_t), Engine.get_frames_per_second(), Engine.get_process_frames(), Days.locked, UI._awaiting_advance, UI._awaiting_choice, UI._screen_layer.get_child_count()])
 	# deadlock watchdog: same signature for 60 real-time-scaled seconds
 	var sig := "%s|%s|%s|%s|%s" % [GameState.day, GameState.block, Days.locked, UI._awaiting_advance, main.location]
 	if sig == _last_sig:
@@ -158,6 +158,8 @@ func _answer(opts: Array) -> int:
 		return opts.find("Put it down")
 	if opts.has("Keep looking"):
 		return 2
+	if opts.has("Sleep (it's early)") and policy == "burnout":
+		return opts.find("Never mind")       # stay up: exhaustion is the point
 	return 0
 
 func _handle_screen(s: Node) -> void:
@@ -197,9 +199,9 @@ func _choose_activity() -> String:
 		"poker":
 			return ["poker", "later"][_turns % 2]
 		"burnout":
-			return ["gym", "poker", "smoke", "videos"][_turns % 4]
+			return ["gym", "gym", "gym", "smoke"][_turns % 4]     # fatigue-heavy: pressure and exhaustion
 		"false":
-			return ["clean", "organize", "research", "gym", "organize"][_turns % 5]
+			return ["clean", "organize", "research", "organize", "clean"][_turns % 5]     # busy, but rested
 		"aware":
 			if GameState.cycle_broken:
 				return "breathe"
@@ -279,7 +281,7 @@ func _take_turn() -> void:
 	elif GameState.cycle_broken and policy == "aware" and not GameState.essay_done and _day_turns >= 2:
 		log_line("aware: walk out")
 		await Days.on_interact("door")
-	elif GameState.block >= 3 or _day_turns > 3:
+	elif GameState.block >= 3 or _day_turns > (8 if policy == "burnout" else 3):
 		await Days.on_interact("bed")
 	else:
 		await Days.on_interact("pc")

@@ -707,6 +707,12 @@ func _doomscroll_exit() -> void:
 # ---- endings ---------------------------------------------------------------------------------
 
 func _ending(id: String) -> void:
+	if UI.fade_alpha() > 0.5:
+		# arriving from a black fade (after the night's sequences): bring the room up under our own black
+		_wash.color = Color.BLACK
+		_wash.modulate.a = 1.0
+		UI.fade_clear(0.01)
+		_prop(_wash, "modulate:a", 0.0, 1.0)
 	_start_text("cin_end_" + id)
 	match id:
 		"escape": await _end_escape()

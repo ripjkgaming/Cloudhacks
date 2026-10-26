@@ -266,12 +266,6 @@
     ]
    }
   ],
-  "rug": [
-   {
-    "text": "A soft rug.",
-    "priority": 1
-   }
-  ],
   "laundry": [
    {
     "text": "Laundry. Clean? Dirty? Who knows.",
@@ -324,12 +318,6 @@
   "outdoor_bench": [
    {
     "text": "A bench. The sun is nice.",
-    "priority": 1
-   }
-  ],
-  "outdoor_apartment": [
-   {
-    "text": "Home. For better or worse.",
     "priority": 1
    }
   ]

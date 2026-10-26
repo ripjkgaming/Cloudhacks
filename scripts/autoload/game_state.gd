@@ -146,6 +146,17 @@ func lookup(path: String):
 		return narrative_state
 	return 0
 
+## JSON has one number type; put whole numbers back to ints so a loaded run is identical to the saved one.
+static func _intify(v):
+	if v is float and v == floorf(v) and absf(v) < 1e9:
+		return int(v)
+	if v is Dictionary:
+		var out := {}
+		for k in v:
+			out[k] = _intify(v[k])
+		return out
+	return v
+
 func to_dict() -> Dictionary:
 	return {"version": 1, "psy": psy, "day": day, "block": block, "location": location,
 			"custom": custom, "stats": stats, "flags": flags, "delayed": delayed,
@@ -168,10 +179,12 @@ func from_dict(d: Dictionary) -> void:
 	var saved: Dictionary = d.get("stats", {})
 	for k in fresh:
 		if saved.has(k):
-			fresh[k] = saved[k]
+			fresh[k] = _intify(saved[k]) if fresh[k] is int or fresh[k] is Dictionary else float(saved[k])
 	stats = fresh
-	flags = d.get("flags", {}).duplicate()
+	flags = _intify(d.get("flags", {}))
 	delayed = d.get("delayed", []).duplicate(true)
+	for e in delayed:
+		e["day"] = int(e["day"])
 	narrative_state = String(d.get("narrative_state", "NORMAL"))
 	essay_sections_done = int(d.get("essay_sections_done", 0))
 	essay_done = bool(d.get("essay_done", false))

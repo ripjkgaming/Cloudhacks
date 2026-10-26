@@ -511,6 +511,9 @@ func fade_clear(t: float = 1.0) -> void:
 	tw.tween_property(_fade, "modulate:a", 0.0, maxf(t, 0.001))
 	await tw.finished
 
+func fade_alpha() -> float:
+	return _fade.modulate.a
+
 func set_black() -> void:
 	_fade.color = Color.BLACK
 	_fade.modulate.a = 1.0
