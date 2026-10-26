@@ -114,7 +114,7 @@ func _build_shell() -> void:
 	door_pivot = Node3D.new()
 	door_pivot.position = Vector3(-0.7, 0, D / 2)
 	add_child(door_pivot)
-	var door := Build.box(door_pivot, Vector3(0.96, 2.03, 0.05), Vector3(-0.48, 1.015, 0), Color("c9a77c"))
+	var door := Build.box(door_pivot, Vector3(0.96, 2.03, 0.05), Vector3(-0.48, 1.015, 0), Color("c9a77c"), true)
 	Build.sphere(door_pivot, 0.03, Vector3(-0.85, 1.0, -0.05), Color("d4af37"), Vector3.ONE, 0.3)
 	var it := _it("door", "Door", Vector3(0.96, 2.03, 0.2), Vector3(-1.18, 1.015, D / 2 - 0.05))
 	it.track(door)
@@ -393,7 +393,7 @@ func _build_lights() -> void:
 func spawn_point(spawn: String) -> Array:
 	match spawn:
 		"door": return [Vector3(-1.2, 0.0, 1.7), 0.0]          # facing into the room (-Z)
-		"desk": return [Vector3(1.0, 0.0, -0.9), 0.0]
+		"desk": return [Vector3(1.0, 0.0, -0.6), 0.0]
 		_: return [Vector3(-1.0, 0.0, -1.0), -PI / 2]          # beside bed, facing east
 
 func monitor_view() -> Transform3D:

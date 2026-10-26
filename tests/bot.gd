@@ -281,7 +281,7 @@ func _take_turn() -> void:
 	elif GameState.cycle_broken and policy == "aware" and not GameState.essay_done and _day_turns >= 2:
 		log_line("aware: walk out")
 		await Days.on_interact("door")
-	elif GameState.block >= 3 or _day_turns > (8 if policy == "burnout" else 3):
+	elif GameState.block >= 3 or _day_turns > (30 if policy == "burnout" else 3):
 		await Days.on_interact("bed")
 	else:
 		await Days.on_interact("pc")

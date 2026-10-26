@@ -16,6 +16,7 @@ var _t := 0.0
 func _ready() -> void:
 	_build_env()
 	_build_ground()
+	_build_bounds()
 	_build_apartment()
 	_build_park()
 	_build_gym()
@@ -79,6 +80,19 @@ func _build_ground() -> void:
 	Build.box(self, Vector3(40, 0.04, 16), Vector3(-3, 0.02, -8), Color("bfb8a6"))           # plaza
 	for i in range(-6, 7):
 		Build.box(self, Vector3(1.6, 0.025, 0.12), Vector3(i * 6.0, 0.03, 12), Color("e8e2d0"))
+
+## Invisible walls so nobody can walk off the end of the world.
+func _build_bounds() -> void:
+	for w in [[Vector3(70, 8, 1), Vector3(0, 4, -35)], [Vector3(70, 8, 1), Vector3(0, 4, 20)],
+			[Vector3(1, 8, 56), Vector3(-35, 4, -8)], [Vector3(1, 8, 56), Vector3(35, 4, -8)]]:
+		var sb := StaticBody3D.new()
+		var cs := CollisionShape3D.new()
+		var sh := BoxShape3D.new()
+		sh.size = w[0]
+		cs.shape = sh
+		sb.add_child(cs)
+		sb.position = w[1]
+		add_child(sb)
 
 func _build_apartment() -> void:
 	var b := Build.box(self, Vector3(14, 12, 8), Vector3(-1, 6, 5.5), Color("c9a58a"), true)
@@ -242,4 +256,4 @@ func _process(delta: float) -> void:
 func spawn_point(where: String) -> Array:
 	if where == "gym":
 		return [Vector3(14.0, 0.0, -3.0), -PI / 2]
-	return [Vector3(0, 0.0, 3.5), 0.0]        # outside the apartment, facing the park (-Z)
+	return [Vector3(0, 0.0, 0.3), 0.0]        # outside the apartment door, facing the park (-Z)
