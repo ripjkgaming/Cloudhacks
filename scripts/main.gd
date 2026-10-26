@@ -188,7 +188,7 @@ func _on_pause_choice(choice: String) -> void:
 		"resume": _unpause()
 		"save":
 			Saves.save_game()
-			UI.toast("Saved.")
+			Events.notification.emit("Saved.")
 		"settings": _open_settings()
 		"menu":
 			_unpause()

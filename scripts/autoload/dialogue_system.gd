@@ -6,7 +6,6 @@ extends Node
 ## Conditions are tiny expressions evaluated against GameState.lookup(), e.g.
 ##   "stats.poker_count>=3", "day==2", "flag.met_friend", "!flag.x", "avoidance>50".
 
-signal line_requested(speaker: String, text: String)
 
 const MAX_STEPS := 120
 var _files := {}

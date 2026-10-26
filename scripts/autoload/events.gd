@@ -1,5 +1,7 @@
 extends Node
 ## Global signal bus. Systems talk through these instead of holding references.
+## Most of these are observer hooks: the game emits them but nothing in-game listens (the QA bot,
+## tests and future mods do). `notification` is the reverse: anything may emit it to show a toast.
 
 signal psy_changed(var_name: String, old_value: float, new_value: float)
 signal narrative_state_changed(state: String)
@@ -18,7 +20,6 @@ signal interacted(id: String)
 signal minigame_finished(id: String, result: Dictionary)
 signal room_state_changed()
 signal notification(text: String)
-signal subtitle(text: String, speaker: String, duration: float)
 signal essay_progress(sections_done: int)
 signal cinema_started(id: String)
 signal cinema_finished(id: String, skipped: bool)

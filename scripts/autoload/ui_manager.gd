@@ -364,7 +364,6 @@ func bark(text: String, speaker: String = "") -> void:
 	_bark_tween.tween_property(_bark, "modulate:a", 1.0, 0.2)
 	_bark_tween.tween_interval(clampf(1.4 + text.length() * 0.045, 2.0, 7.0))
 	_bark_tween.tween_property(_bark, "modulate:a", 0.0, 0.6)
-	Events.subtitle.emit(text, speaker, 3.0)
 
 ## Sound caption (accessibility), e.g. "[phone buzzes]".
 func caption(text: String) -> void:

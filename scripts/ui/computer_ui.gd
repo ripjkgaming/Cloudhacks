@@ -219,7 +219,6 @@ func _show_toast(text: String) -> void:
 	_toast_label.text = text
 	_toast.visible = true
 	Audio.play_sfx("notify", -10.0)
-	Events.subtitle.emit("[notification] " + text, "", 2.0)
 	UI.caption("[notification sound]")
 	var tw := create_tween()
 	tw.tween_interval(4.5)

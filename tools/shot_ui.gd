@@ -72,5 +72,15 @@ func _run() -> void:
 	await _shot("choice")
 	UI._choice_done.emit(1)
 	await get_tree().process_frame
+	# the outdoor hub and the gym, from the spawn points the game uses
+	await main.enter_neighborhood("door")
+	await _shot("neighborhood_door")
+	main.player.set_pose(Vector3(4, 0, -6), deg_to_rad(-60))
+	await _shot("neighborhood_park")
+	await main.enter_neighborhood("gym")
+	await _shot("gym_interior")
+	main.player.set_pose(Vector3(16.5, 0, -3), -PI / 2)
+	main.player.pitch = deg_to_rad(-12)
+	await _shot("gym_equipment")
 	print("[ui] shots written to ", _out)
 	get_tree().quit(0)

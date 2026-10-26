@@ -94,7 +94,7 @@ func _hair(color: Color) -> void:
 		3:
 			Build.sphere(head, 0.118, Vector3(0, 0.115, -0.005), color, Vector3(1, 1.1, 1.0))
 		4:
-			pass
+			pass                       # bald: no hair
 
 func _accessory(kind: int, shirt: Color) -> void:
 	match kind:

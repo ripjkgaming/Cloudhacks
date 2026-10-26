@@ -3,8 +3,6 @@ extends CharacterBody3D
 ## First-person controller: smooth movement, comfortable head motion, interaction ray,
 ## procedural arms, and cutscene camera moves.
 
-signal interacted_with(it: Interactable)
-
 const WALK := 1.9
 const SPRINT := 3.5
 const CROUCH_SPEED := 1.0
@@ -106,7 +104,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		pitch = clampf(pitch - event.relative.y * s, deg_to_rad(-85), deg_to_rad(85))
 	elif event.is_action_pressed("interact") and target != null:
 		vm.reach()
-		interacted_with.emit(target)
 		target.activate(self)
 	elif event.is_action_pressed("flashlight"):
 		flash.visible = not flash.visible
