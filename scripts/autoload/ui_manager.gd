@@ -10,8 +10,8 @@ const L_FX := 1
 const L_HUD := 2
 const L_DIALOGUE := 5
 const L_SCREEN := 4
-const L_SEQ := 6
 const L_FADE := 10
+const L_SEQ := 11                   # story text must sit above the fade it is read over
 
 var hooks := {}                    # name -> Callable (awaitable); registered by Main/world scripts
 var gameplay_active := false:
@@ -322,6 +322,9 @@ func _refresh_mouse() -> void:
 func show_hud(v: bool) -> void:
 	_hud.visible = v
 
+func hud_visible() -> bool:
+	return _hud.visible
+
 func set_prompt(text: String) -> void:
 	_prompt.text = text
 	_prompt.add_theme_color_override("font_color", Color(1, 1, 1, 0.9))
@@ -522,7 +525,11 @@ func text_card(text: String, hold: float = 2.4, size: int = 34, color: Color = C
 	text = Dialogue.fill(text)
 	_seq_label.text = text
 	_seq_label.add_theme_font_size_override("font_size", size)
+	var on_white: bool = _fade.modulate.a > 0.5 and _fade.color.get_luminance() > 0.6
+	if on_white:
+		color = Color(0.1, 0.1, 0.14, color.a)
 	_seq_label.add_theme_color_override("font_color", color)
+	_seq_label.add_theme_color_override("font_outline_color", Color(1, 1, 1, 0.8) if on_white else Color(0, 0, 0, 0.8))
 	_seq_label.modulate.a = 1.0
 	_seq_label.visible_ratio = 0.0 if typed else 1.0
 	if typed:

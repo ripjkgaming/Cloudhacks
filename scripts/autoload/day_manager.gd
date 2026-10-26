@@ -92,8 +92,7 @@ func begin_day(day: int, loaded: bool = false) -> void:
 	Audio.set_ambience("room")
 	UI.show_hud(true)
 	player().lock(true)
-	await UI.fade_clear(1.6)
-	player().wake_up()
+	await Cinema.play("wake", {"day": day})
 	UI.day_banner("DAY %d" % day)
 	Events.day_started.emit(day)
 	await UI.wait(1.4)
@@ -223,8 +222,8 @@ func perform_activity(id: String, via_computer: bool = false) -> void:
 		"videos", "browse":
 			Psychology.commit_choice(id)
 			await _ack_avoidance()
+			await _time_passes("One more video. Then one more. Then...", "videos", a.get("cost", 1) * 60)
 			await _release(via_computer)
-			await _time_passes("One more video. Then one more. Then...", "videos")
 			spend_blocks(a.get("cost", 1))
 			await _finish_avoidance_at_home()
 		"clean", "organize", "research", "sleep_early":
@@ -273,8 +272,8 @@ func _do_essay(via_computer: bool) -> void:
 		if result.get("reason", "") == "distracted":
 			Psychology.commit_choice("browse")
 			GameState.inc("quit_essay")
+			await _time_passes("Just a quick look...", "scroll", 45)
 			await _release(via_computer)
-			await _time_passes("Just a quick look...", "scroll")
 			spend_blocks(1)
 			await _finish_avoidance_at_home()
 			return
@@ -347,11 +346,19 @@ func _finish_avoidance_at_home() -> void:
 	Saves.save_game()
 	unlock()
 
-func _time_passes(text: String, sfx_name: String = "") -> void:
-	await UI.fade_to(Color.BLACK, 0.7)
+## sfx_name "videos"/"scroll" means a doomscroll: the camera is pulled into the screen and the
+## clock jumps while it is dark (Cinema). Callers release the seated camera afterwards.
+func _time_passes(text: String, sfx_name: String = "", minutes: int = 60) -> void:
+	var scroll := sfx_name in ["videos", "scroll"]
+	if scroll:
+		await Cinema.play("doomscroll_enter")
+	await UI.fade_to(Color.BLACK, 0.05 if scroll else 0.7)
 	await UI.text_card(text, 1.0, 26, Color(1, 1, 1, 0.8))
 	await UI.wait(0.4)
-	await UI.fade_clear(0.8)
+	if scroll:
+		await Cinema.play("doomscroll_exit", {"minutes": minutes})
+	else:
+		await UI.fade_clear(0.8)
 
 # ---- poker / console / chores ---------------------------------------------
 
@@ -667,8 +674,11 @@ func end_day() -> void:
 	Events.day_ended.emit(GameState.day)
 	GameState.inc("sleep_count")
 	player().lock(true)
-	await UI.fade_to(Color.BLACK, 1.2)
-	Audio.play_sfx("creak", -8.0)
+	if _bedtime_scroll():
+		GameState.inc("night_scrolls")
+		await Cinema.play("night_scroll", {"minutes": 35 + int(GameState.get_psy("pressure") * 0.5)})
+	else:
+		await Cinema.play("day_end", {"day": GameState.day})
 	await UI.run_sequence("sleep")
 	var recover := maxf(4.0, 32.0 - GameState.get_psy("pressure") * 0.28)
 	Psychology.apply({"fatigue": -recover})
@@ -684,6 +694,11 @@ func end_day() -> void:
 			await _gate(2)
 			return
 	await begin_day(day + 1)
+
+## Pressure and avoidance keep you up: the phone, the ceiling, the clock running away (cosmetic).
+func _bedtime_scroll() -> bool:
+	return not GameState.cycle_broken and GameState.day >= 2 \
+			and (GameState.get_psy("avoidance") >= 45.0 or GameState.get_psy("pressure") >= 55.0)
 
 func _gate(which: int) -> void:
 	await UI.run_sequence("final_gate" if which == 1 else "final_gate_2")

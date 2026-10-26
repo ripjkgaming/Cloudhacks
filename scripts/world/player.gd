@@ -72,15 +72,6 @@ func _ready() -> void:
 func _apply_settings() -> void:
 	cam.fov = Settings.fov
 
-## Wake up in bed: eyes open low, looking at the ceiling, then sit up.
-func wake_up() -> void:
-	eye_speed = 1.4
-	_eye = 0.55
-	pitch = deg_to_rad(55)
-	var tw := create_tween()
-	tw.tween_property(self, "pitch", 0.0, 2.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tw.tween_callback(func(): eye_speed = 8.0)
-
 func refresh_look() -> void:
 	vm.setup(GameState.custom)
 	_build_feet()

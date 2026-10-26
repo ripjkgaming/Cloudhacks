@@ -26,6 +26,9 @@ func start(id: String) -> void:
 	UI.gameplay_active = false
 	Saves.record_ending(id)
 	Events.ending_reached.emit(id)
+	if Days.main.player != null:
+		Days.player().lock(true)
+	await Cinema.play("ending", {"id": id})
 	Narrative.set_state("ENDING", 1.0)
 	match id:
 		"escape": await _escape()

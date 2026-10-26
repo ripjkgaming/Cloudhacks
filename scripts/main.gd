@@ -37,6 +37,7 @@ func _process(delta: float) -> void:
 # ====================================================================== menus
 
 func return_to_menu() -> void:
+	Cinema.abort()
 	Days.locked = true
 	Endings.running = false
 	_unpause()
@@ -84,8 +85,7 @@ func _new_game() -> void:
 	GameState.reset_run(false)
 	GameState.custom = GameState.default_custom()
 	Saves.delete_save()
-	await UI.run_sequence("opening")
-	await UI.seq_bg(0.0, 0.1)
+	await Cinema.play("opening")
 	var cu := CustomizationUI.new()
 	UI.open_screen(cu)
 	await UI.fade_clear(1.0)

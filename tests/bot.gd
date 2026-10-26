@@ -24,6 +24,13 @@ var _outing_steps := 0
 var _shot_n := 0
 var _day_turns := 0
 var _turn_day := 0
+var _first_ending := ""
+var _last_seq_text := ""
+var expect := ""             # comma list of acceptable first endings ("" = any)
+
+## First ending each policy is designed to reach (override with --expect=a,b).
+const EXPECTED := {"work": "escape", "later": "loop", "poker": "loop", "mixed": "", "burnout": "burnout",
+		"false": "false_productivity", "aware": "awareness", "loop": "loop"}
 
 func _ready() -> void:
 	for a in args:
@@ -37,7 +44,13 @@ func _ready() -> void:
 			max_seconds = float(a.get_slice("=", 1))
 		elif a.begins_with("--seed="):
 			seed(int(a.get_slice("=", 1)))
+		elif a.begins_with("--expect="):
+			expect = a.get_slice("=", 1)
+	if expect == "":
+		expect = EXPECTED.get(policy, "")
 	Settings.master_volume = 0.0
+	Events.ending_reached.connect(func(id): if _first_ending == "": _first_ending = id)
+	Events.cinema_beat.connect(func(id, beat): shot("cin_%s_%s" % [id, beat]))
 	print("[bot] policy=%s scale=%s" % [policy, Engine.time_scale])
 
 func log_line(s: String) -> void:
@@ -56,6 +69,10 @@ func _process(delta: float) -> void:
 		_finish("TIMEOUT")
 		return
 	_pump()
+	_shoot_sequence_text()
+	if _first_ending != "" and not Endings.running:
+		_finish("ENDING " + _first_ending)
+		return
 	if int(_t) % 10 == 0 and int(_t) != int(_t - delta / maxf(Engine.time_scale, 0.001)):
 		print("[bot] t=%d frames=%d locked=%s adv=%s choice=%s screens=%d" % [int(_t), Engine.get_process_frames(), Days.locked, UI._awaiting_advance, UI._awaiting_choice, UI._screen_layer.get_child_count()])
 	# deadlock watchdog: same signature for 60 real-time-scaled seconds
@@ -87,11 +104,20 @@ func shot(name: String) -> void:
 	var img := get_viewport().get_texture().get_image()
 	img.save_png("%s/%02d_%s.png" % [shots_dir, _shot_n, name])
 
+## Screenshot each new line of sequence text (story cards, endings) as the player would see it.
+func _shoot_sequence_text() -> void:
+	var t: String = UI._seq_label.text
+	if shots_dir != "" and t != "" and t != _last_seq_text and UI._seq_label.modulate.a > 0.9 and _shot_n < 90:
+		_last_seq_text = t
+		shot("seq_" + t.substr(0, 18).validate_filename().replace(" ", "_"))
+
 func _finish(reason: String) -> void:
 	set_process(false)
 	var ends: Array = Saves.meta.get("endings", {}).keys()
-	print("[bot] RESULT policy=%s reason=%s day=%d endings=%s stats=%s psy=%s" % [policy, reason, GameState.day, str(ends), JSON.stringify(GameState.stats), JSON.stringify(GameState.psy)])
-	get_tree().quit(0 if reason.begins_with("ENDING") else 1)
+	var first := _first_ending
+	var ok := reason.begins_with("ENDING") and (expect == "" or first in expect.split(","))
+	print("[bot] RESULT policy=%s verdict=%s first=%s expect=%s reason=%s day=%d endings=%s stats=%s psy=%s" % [policy, "PASS" if ok else "FAIL", first, expect if expect != "" else "any", reason, GameState.day, str(ends), JSON.stringify(GameState.stats), JSON.stringify(GameState.psy)])
+	get_tree().quit(0 if ok else 1)
 
 # ------------------------------------------------------------------ prompts
 
